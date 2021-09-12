@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DACSN" Class="dbDACSNDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GI2B3FR;Initial Catalog=DACSN;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DACSNConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CaNhiemCaNuoc" Member="CaNhiemCaNuocs">
+    <Type Name="CaNhiemCaNuoc">
+      <Column Name="SoCaNhiem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DangDieuTri" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Khoi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TuVong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
