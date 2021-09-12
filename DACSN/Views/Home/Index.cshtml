@@ -28,8 +28,9 @@
     <hr />
 
     <div class="row">
-        <div class="col-lg-6 well">
-            <h3 class="tle1" style="color:darkblue"><img src="~/Image/TieuDe.png" style="height:25px;width:10px;" />&#160;<b>Chỉ đạo chống dịch</b></h3>
+        <div class="col-lg-6">
+            <h3 class="tle1" style="color:darkblue"><img src="~/Image/TieuDe.png" style="height:25px;width:10px;" />&#160;<b>Chỉ đạo chống dịch</b></h3>           
+            @Html.Action("ChiDaoPartial","Home")          
         </div>
         <div class="col-lg-6">
             <h3 class="tle1" style="color:darkblue"><img src="~/Image/TieuDe.png" style="height:25px;width:10px;" />&#160;<b>Bản tin COVID - 19</b></h3>
@@ -40,12 +41,7 @@
 
     <h3 class="tle1" style="color:darkblue"><img src="~/Image/TieuDe.png" style="height:25px;width:10px;" />&#160;<b>Vaccine - Tiêm chủng</b></h3>
     <div class="row">
-        <div class="col-lg-6 well">
-            Tin mới nhất
-        </div>
-        <div class="col-lg-6 well">
-            Tin cũ hơn
-        </div>
+       @Html.Action("VaccinePartial", "Home")
     </div>
     <hr style="" />
 

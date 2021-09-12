@@ -11,23 +11,59 @@ namespace DACSN.Controllers
     {
         dbDuLieuYTeDataContext db = new dbDuLieuYTeDataContext();
         // GET: Home
+        
+        //tintuc
         private List<TinTuc> LayTinTucMoi(int count)
         {
             return db.TinTucs.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
         }
+        public ActionResult TinTucPartial()
+        {
+            var ListTinTuc = LayTinTucMoi(8);
+            return View(ListTinTuc);
+        }
 
+        //video
         private List<Video> LayVideoMoi(int count)
         {
             return db.Videos.OrderByDescending(a => a.NgayCapNhatVideo).Take(count).ToList();
         }
-
         public ActionResult VideoPartial()
         {
             var ListVideo = LayVideoMoi(4);
             return View(ListVideo);
         }
 
-        public ActionResult TinTucPartial()
+        //vaccine
+        private List<Vaccine>LayVaccineMoi(int count)
+        {
+            return db.Vaccines.OrderByDescending(a => a.NgayCapNhatCD).Take(count).ToList();
+        }
+
+        public ActionResult VaccinePartial()
+        {
+            var ListVaccine = LayVaccineMoi(4);
+            return View(ListVaccine);
+        }
+
+        //ChiDao
+        private List<ChiDao>LayChiDaoMoi(int count)
+        {
+            return db.ChiDaos.OrderByDescending(a => a.NgayViet).Take(count).ToList();
+        }
+
+        public ActionResult ChiDaoPartial()
+        {
+            var ListChiDao = LayChiDaoMoi(3);
+            return View(ListChiDao);
+        }
+
+        public ActionResult Index()
+        {        
+            return View();
+        }
+
+        public ActionResult TinTuc()
         {
             var ListTinTuc = LayTinTucMoi(8);
             return View(ListTinTuc);
@@ -42,17 +78,6 @@ namespace DACSN.Controllers
         public ActionResult BanTinMoiNhatPartial()
         {
             var ListTinTuc = LayTinTucMoi(1);
-            return View(ListTinTuc);
-        }
-
-        public ActionResult Index()
-        {        
-            return View();
-        }
-
-        public ActionResult TinTuc()
-        {
-            var ListTinTuc = LayTinTucMoi(8);
             return View(ListTinTuc);
         }
 

@@ -88,6 +88,40 @@ create table Video
 	NgayCapNhatVideo smalldatetime,
 )
 
+create table Vaccine
+(
+	Idvaccine int IDENTITY(1,1) primary key,
+	TenChuDeVaccine nvarchar(200),
+	AnhCD nvarchar(200),
+	NoiDungCD nvarchar(200),
+	NgayCapNhatCD smalldatetime,
+)
+
+create table ChiDao
+(
+    IDChiDao int identity(1,1) primary key,
+    TieuDeChiDao Nvarchar(max) not null,
+    NoiDungChiDao ntext not null,
+    NgayViet smalldatetime not null,
+    AnhChiDao  nvarchar(200) not null,
+)
+
+--ChiDao--
+SET IDENTITY_INSERT ChiDao ON;
+insert Chidao (IdChiDao,TieuDeChiDao,NoiDungChiDao,NgayViet,AnhChiDao) values(1, N'Bí thư Tỉnh ủy kiểm tra đột xuất công tác chống dịch tại TP.Thuận An, Dĩ An',N'Đang Cập nhật...', '2021/9/12','ChiDao1.jpg')
+insert Chidao (IdChiDao,TieuDeChiDao,NoiDungChiDao,NgayViet,AnhChiDao) values(2, N'Phân tầng F0, giúp bệnh nhân Covid-19 phục hồi sức khỏe',N'Đang Cập nhật...', '2021/9/12','ChiDao2.jpg')
+insert Chidao (IdChiDao,TieuDeChiDao,NoiDungChiDao,NgayViet,AnhChiDao) values(3, N'Các trường hợp nhiễm Covid-19 không triệu chứng được xuất viện vào ngày thứ 7',N'Đang Cập nhật...', '2021/9/12','ChiDao3.jpg')
+SET IDENTITY_INSERT ChiDao OFF;
+
+--vaccine--
+SET IDENTITY_INSERT Vaccine ON;
+insert Vaccine (Idvaccine, TenChuDeVaccine,AnhCD, NoiDungCD, NgayCapNhatCD) values(1,N'Hà Nội đang tiến dần tới đích bao phủ vaccine COVID-19 cho người trên 18 tuổi',N'HaNoichichvacciene covis-19tren18.png',N'Đang Cập Nhật...','2021/9/12')
+insert Vaccine (Idvaccine, TenChuDeVaccine,AnhCD, NoiDungCD, NgayCapNhatCD) values(2,N'Bộ trưởng Bộ Y tế tiếp nhận 200.000 liều vaccine COVID-19',N'tiepnhan200000lieuvaccine.png',N'Đang Cập Nhật...','2021/9/12')
+insert Vaccine (Idvaccine, TenChuDeVaccine,AnhCD, NoiDungCD, NgayCapNhatCD) values(3,N'Bộ Y tế: Hơn 103 triệu liều vaccine COVID-19 dự kiến về Việt Nam từ nay đến cuối năm',N'hon103trieulieuvacxin.png',N'Đang Cập Nhật...','2021/9/12')
+insert Vaccine (Idvaccine, TenChuDeVaccine,AnhCD, NoiDungCD, NgayCapNhatCD) values(4,N'Ngày 11/9, Hà Nội lập kỷ lục tiêm hơn 411.000 liều vaccine COVID-19',N'HaNoilapkyluctiemhon411kvaccine.png',N'Đang Cập Nhật...','2021/9/12')
+SET IDENTITY_INSERT Vaccine OFF;
+
+
 --Video--
 SET IDENTITY_INSERT Video ON;
 insert Video (IdVideo,TenVideo,Video,NoiDungVideo,NgayCapNhatVideo) values(1,N'Nên đi chợ như thế nào để chống dịch',N'Đi Chợ Như Nào Để Phòng Chống Covid-19.mp4',N'Đang Cập nhật...','2021/9/12')

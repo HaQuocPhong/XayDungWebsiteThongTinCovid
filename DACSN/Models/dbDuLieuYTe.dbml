@@ -17,6 +17,22 @@
       <Association Name="Tag_BaiViet" Member="Tag" ThisKey="IdTag" OtherKey="IdTag" Type="Tag" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ChiDao" Member="ChiDaos">
+    <Type Name="ChiDao">
+      <Column Name="IDChiDao" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TieuDeChiDao" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="NoiDungChiDao" Type="System.String" DbType="NText NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="NgayViet" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="AnhChiDao" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Loai_BaiViet" Member="Loai_BaiViets">
+    <Type Name="Loai_BaiViet">
+      <Column Name="IdLoai" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Loai_BaiViet_BaiViet" Member="BaiViets" ThisKey="IdLoai" OtherKey="IdLoai" Type="BaiViet" />
+    </Type>
+  </Table>
   <Table Name="dbo.DuyetBaiViet" Member="DuyetBaiViets">
     <Type Name="DuyetBaiViet">
       <Column Name="IdBaiViet" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -25,13 +41,6 @@
       <Column Name="NgayDuyet" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
       <Association Name="BaiViet_DuyetBaiViet" Member="BaiViet" ThisKey="IdBaiViet" OtherKey="IdBaiViet" Type="BaiViet" IsForeignKey="true" />
       <Association Name="ThongTinTaiKhoan_DuyetBaiViet" Member="ThongTinTaiKhoan" ThisKey="Nguoiduyet" OtherKey="IdTaiKhoan" Type="ThongTinTaiKhoan" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Loai_BaiViet" Member="Loai_BaiViets">
-    <Type Name="Loai_BaiViet">
-      <Column Name="IdLoai" Type="System.String" DbType="Char(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TenLoai" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Association Name="Loai_BaiViet_BaiViet" Member="BaiViets" ThisKey="IdLoai" OtherKey="IdLoai" Type="BaiViet" />
     </Type>
   </Table>
   <Table Name="dbo.Tag" Member="Tags">
@@ -59,24 +68,6 @@
       <Column Name="TinhTrang" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.TinTuc" Member="TinTucs">
-    <Type Name="TinTuc">
-      <Column Name="IdTinTuc" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TieuDe" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-      <Column Name="NoiDung" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="AnhBia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Video" Member="Videos">
-    <Type Name="Video">
-      <Column Name="IdVideo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenVideo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Video" Member="Video1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="NoiDungVideo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NgayCapNhatVideo" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.ThongTinTaiKhoan" Member="ThongTinTaiKhoans">
     <Type Name="ThongTinTaiKhoan">
       <Column Name="IdTaiKhoan" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -88,6 +79,33 @@
       <Column Name="ChucVu" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
       <Association Name="ThongTinTaiKhoan_DuyetBaiViet" Member="DuyetBaiViets" ThisKey="IdTaiKhoan" OtherKey="Nguoiduyet" Type="DuyetBaiViet" />
       <Association Name="Tai_Khoan_ThongTinTaiKhoan" Member="Tai_Khoan" ThisKey="IdTaiKhoan" OtherKey="IdTaiKhoan" Type="Tai_Khoan" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TinTuc" Member="TinTucs">
+    <Type Name="TinTuc">
+      <Column Name="IdTinTuc" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TieuDe" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="NgayCapNhat" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AnhBia" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vaccine" Member="Vaccines">
+    <Type Name="Vaccine">
+      <Column Name="Idvaccine" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenChuDeVaccine" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="AnhCD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NoiDungCD" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NgayCapNhatCD" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Video" Member="Videos">
+    <Type Name="Video">
+      <Column Name="IdVideo" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenVideo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Video" Member="Video1" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="NoiDungVideo" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NgayCapNhatVideo" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

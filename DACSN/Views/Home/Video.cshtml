@@ -1,8 +1,6 @@
 ﻿
-@{
-    ViewBag.Title = "Video";
-    Layout = "~/Views/Shared/_LayoutUser.cshtml";
-}
+@{ ViewBag.Title = "Video";
+                Layout = "~/Views/Shared/_LayoutUser.cshtml"; }
 
 @model IEnumerable<DACSN.Models.Video>
 
@@ -37,23 +35,21 @@
         <div class="col-lg-9">
             @foreach (var video in Model)
             {
-                    <div class="video">
-                        <div class="thumbnail">
-                            <video controls>
-                                <source src="~/Video/@video.Video1" />
-                            </video>
-                            <div class="New">
-                                <div class="TieuDe">
-                                    <a href="#">@video.TenVideo</a>
-                                </div>
-                                <div class="NoiDung">
-                                    <h3>@video.NoiDungVideo</h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-            }
+<div class="video">
+    <div class="thumbnail">
+        <video controls>
+            <source src="~/Video/@video.Video1" />
+        </video>
+        <div class="New">
+            <div class="TieuDe">
+                <a href="#">@video.TenVideo</a>
+            </div>
+            <div class="NoiDung">
+                <h3>@video.NoiDungVideo</h3>
+            </div>
+        </div>
+    </div>
+</div>            }
         </div>
         <div class="col-lg-3">
             <div class="row">
@@ -69,4 +65,5 @@
         </div>
     </div>
 </div>
+
 

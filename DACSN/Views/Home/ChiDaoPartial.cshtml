@@ -1,0 +1,56 @@
+﻿@model IEnumerable<DACSN.Models.ChiDao>
+
+<style type="text/css">
+
+    .row .chidao-img .thumbnail{
+        margin-left:12px;
+    }
+
+    .chidao-img .thumbnail {
+        padding-top: 10px;
+        height: 150px;
+        display: block;
+        width:550px;
+    }
+
+        .chidao-img .thumbnail img {
+            padding-top: 5px;
+            height: 120px;
+            display: block;
+            padding-bottom: 10px;
+            width: 20%;
+        }
+
+    .chidao-img .News {
+        padding-left: 120px;
+    }
+
+        .chidao-img .News a {
+            text-decoration: none
+        }
+</style>
+
+<div class="row">
+    @foreach (var chidao in Model)
+    {
+        <div class="">
+            <div class="chidao-img">
+                <div class="thumbnail">
+                    <img src="~/Image/@chidao.AnhChiDao" alt="@chidao.TieuDeChiDao" />
+                    <div class="News">
+                        <div class="TieuDe">
+                            <a href="#">@chidao.TieuDeChiDao</a>
+                        </div>
+                        <div class="NoiDung">
+                            <h3>@chidao.NoiDungChiDao</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+

@@ -27,23 +27,24 @@
 <div class="row">
     @foreach (var tintuc in Model)
     {
-        
-            <div class="tintuc-img">
-                <div class="thumbnail">
-                    <img src="~/Image/@tintuc.AnhBia" alt="@tintuc.TieuDe" />
-                    <div class="News">
-                        <div class="TieuDe">
-                            <a href="#">@tintuc.TieuDe</a>
-                        </div>
-                        <div class="NoiDung">
-                            <h3>@tintuc.NoiDung</h3>
-                        </div>
+
+        <div class="tintuc-img">
+            <div class="thumbnail">
+                <img src="~/Image/@tintuc.AnhBia" alt="@tintuc.TieuDe" />
+                <div class="News">
+                    <div class="TieuDe">
+                        <a href="#">@tintuc.TieuDe</a>
+                    </div>
+                    <div class="NoiDung">
+                        <h3>@tintuc.NoiDung</h3>
                     </div>
                 </div>
             </div>
-        
+        </div>
+
     }
 </div>
+
 
 
 
