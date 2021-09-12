@@ -9,16 +9,51 @@ namespace DACSN.Controllers
 {
     public class HomeController : Controller
     {
-        dbDACSNDataContext data = new dbDACSNDataContext();
+        dbDuLieuYTeDataContext db = new dbDuLieuYTeDataContext();
         // GET: Home
-        public ActionResult Index()
+        private List<TinTuc> LayTinTucMoi(int count)
         {
+            return db.TinTucs.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
+        }
+
+        private List<Video> LayVideoMoi(int count)
+        {
+            return db.Videos.OrderByDescending(a => a.NgayCapNhatVideo).Take(count).ToList();
+        }
+
+        public ActionResult VideoPartial()
+        {
+            var ListVideo = LayVideoMoi(4);
+            return View(ListVideo);
+        }
+
+        public ActionResult TinTucPartial()
+        {
+            var ListTinTuc = LayTinTucMoi(8);
+            return View(ListTinTuc);
+        }
+
+        public ActionResult BanTinPartial()
+        {
+            var ListTinTuc = LayTinTucMoi(3);
+            return View(ListTinTuc);
+        }
+
+        public ActionResult BanTinMoiNhatPartial()
+        {
+            var ListTinTuc = LayTinTucMoi(1);
+            return View(ListTinTuc);
+        }
+
+        public ActionResult Index()
+        {        
             return View();
         }
 
         public ActionResult TinTuc()
         {
-            return View();
+            var ListTinTuc = LayTinTucMoi(8);
+            return View(ListTinTuc);
         }
 
         public ActionResult DienBienDich()
@@ -28,7 +63,8 @@ namespace DACSN.Controllers
 
         public ActionResult Video()
         {
-            return View();
+            var ListVideo = LayVideoMoi(8);
+            return View(ListVideo);
         }
 
         public ActionResult KhuyenCao()

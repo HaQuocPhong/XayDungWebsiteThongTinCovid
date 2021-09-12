@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DACSN.Models.TinTuc>
+
+<style type="text/css">
+    .tintuc-img .thumbnail {
+        padding-top: 15px;
+        height: 500px;
+        display: block;
+    }
+
+        .tintuc-img .thumbnail img {
+            padding-top: 5px;
+            height: 500px;
+            display: block;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+    .tintuc-img .News {
+        padding-left: 150px;
+    }
+
+        .tintuc-img .News a {
+            text-decoration: none
+        }
+</style>
+
+<div class="row">
+    @foreach (var tintuc in Model)
+    {
+
+        <div class="tintuc-img">
+            <div class="thumbnail">
+                <img src="~/Image/@tintuc.AnhBia" alt="@tintuc.TieuDe" />
+                <div class="News">
+                    <div class="TieuDe">
+                        <a href="#">@tintuc.TieuDe</a>
+                    </div>
+                    <div class="NoiDung">
+                        <h3>@tintuc.NoiDung</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>
+
+
+
+
+

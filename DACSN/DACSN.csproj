@@ -175,10 +175,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\dbDACSN.designer.cs">
+    <Compile Include="Models\dbDuLieuYTe.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbDACSN.dbml</DependentUpon>
+      <DependentUpon>dbDuLieuYTe.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -215,13 +215,13 @@
     <Content Include="Image\vnpost.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Models\dbDACSN.dbml">
+    <Content Include="Models\dbDuLieuYTe.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>dbDACSN.designer.cs</LastGenOutput>
+      <LastGenOutput>dbDuLieuYTe.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <None Include="Models\dbDACSN.dbml.layout">
-      <DependentUpon>dbDACSN.dbml</DependentUpon>
+    <None Include="Models\dbDuLieuYTe.dbml.layout">
+      <DependentUpon>dbDuLieuYTe.dbml</DependentUpon>
     </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
@@ -236,6 +236,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Video\HD PHÒNG CHỐNG COVID- 19 TẠI CHUNG CƯ DÀNH CHO NGƯỜI DÂN.mp4" />
+    <Content Include="Video\NỖ LỰC CỨU BỆNH NHÂN NẶNG VÀ GIẢM TỶ LỆ TỬ VONG TẠI 12 TRUNG TÂM HỒI SỨC COVID-19 BỆNH VIỆN TUYẾN TW.mp4" />
+    <Content Include="Video\Thứ trưởng Bộ Y tế - 4 nhiệm vụ trọng tâm đảm bảo an toàn tại chợ Bình Điền khi mở cửa trở lại.mp4" />
+    <Content Include="Video\Đi Chợ Như Nào Để Phòng Chống Covid-19.mp4" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -246,34 +250,18 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
-    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
-    <Content Include="Views\Manage\ChangePassword.cshtml" />
-    <Content Include="Views\Manage\Index.cshtml" />
-    <Content Include="Views\Manage\ManageLogins.cshtml" />
-    <Content Include="Views\Manage\SetPassword.cshtml" />
-    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\TinTuc.cshtml" />
     <Content Include="Views\Home\DienBienDich.cshtml" />
     <Content Include="Views\Home\Video.cshtml" />
     <Content Include="Views\Home\KhuyenCao.cshtml" />
     <Content Include="Views\Home\DieuCanBiet.cshtml" />
+    <Content Include="Views\Home\TinTucPartial.cshtml" />
+    <Content Include="Views\Home\VideoPartial.cshtml" />
+    <Content Include="Views\Home\BanTinPartial.cshtml" />
+    <Content Include="Views\Home\BanTinMoiNhatPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

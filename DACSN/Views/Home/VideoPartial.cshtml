@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DACSN.Models.Video>
+
+<style type="text/css">
+    .video .thumbnail {
+       padding-top: 10px;  
+       height:300px;
+       display: block;
+    }
+
+        .video .thumbnail video{
+            padding-top: 5px;
+            height: 53%;
+            display: block;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+   
+        .video .New a {
+            text-decoration: none
+        }
+
+        .video .New .TieuDe {
+            text-align: center;
+        }
+</style>
+
+<div class="row">
+    @foreach (var video in Model)
+    {
+        <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
+            <div class="video">
+                <div class="thumbnail">
+                    <video controls>
+                        <source src="~/Video/@video.Video1" />
+                    </video>
+                    <div class="New">
+                        <div class="TieuDe">
+                            <a href="#">@video.TenVideo</a>
+                        </div>
+                        <div class="NoiDung">
+                            <h3>@video.NoiDungVideo</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
