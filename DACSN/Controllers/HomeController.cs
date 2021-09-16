@@ -13,13 +13,10 @@ namespace DACSN.Controllers
         // GET: Home
         
         //tintuc
-        private List<BaiViet> LayTinTucMoi(int count)
-        {
-            return db.BaiViets.OrderByDescending(a => a.NgayViet).Take(count).ToList();
-        }
+       
         public ActionResult TinTucPartial()
         {
-            var ListTinTuc = LayTinTucMoi(8);
+            var ListTinTuc = db.BaiViets.Where(s => s.IdDM == 2).OrderByDescending(s => s.NgayViet).Take(3);
             return View(ListTinTuc);
         }
 
@@ -46,40 +43,45 @@ namespace DACSN.Controllers
             return View(ListVaccine);
         }
 
-        //ChiDao
-        private List<ChiDao>LayChiDaoMoi(int count)
-        {
-            return db.ChiDaos.OrderByDescending(a => a.NgayViet).Take(count).ToList();
-        }
-
+        */
+        
         public ActionResult ChiDaoPartial()
         {
-            var ListChiDao = LayChiDaoMoi(3);
+            var ListChiDao = db.BaiViets.Where(s => s.IdDM == 1).OrderByDescending(s => s.NgayViet);
             return View(ListChiDao);
         }
-        */
+        
         public ActionResult Index()
         {        
             return View();
         }
 
-        /*public ActionResult TinTuc()
-        {
-            var ListTinTuc = LayTinTucMoi(8);
-            return View(ListTinTuc);
-        }
-
         public ActionResult BanTinPartial()
         {
-            var ListTinTuc = LayTinTucMoi(3);
+            var ListTinTuc = db.BaiViets.Where(s => s.IdDM == 2).OrderByDescending(s => s.NgayViet).Take(4);
             return View(ListTinTuc);
         }
 
         public ActionResult BanTinMoiNhatPartial()
         {
-            var ListTinTuc = LayTinTucMoi(1);
+            var ListTinTuc = db.BaiViets.Where(s => s.IdDM == 2).OrderByDescending(s => s.NgayViet).Take(1);
             return View(ListTinTuc);
         }
+
+        public ActionResult VideoMoiPartial()
+        {
+            var ListVideo = db.BaiViets.Where(s => s.IdDM == 3).OrderByDescending(s => s.NgayViet).Take(1);
+            return View(ListVideo);
+        }
+        /*public ActionResult TinTuc()
+        {
+            var ListTinTuc = LayTinTucMoi(8);
+            return View(ListTinTuc);
+        }
+        /*
+        
+
+        
 
         public ActionResult DienBienDich()
         {
@@ -101,7 +103,7 @@ namespace DACSN.Controllers
         {
             return View();
         }*/
-        
+
 
     }
 }

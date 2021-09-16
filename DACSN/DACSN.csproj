@@ -211,6 +211,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\12.jpg" />
+    <Content Include="Images\13.jpeg" />
     <Content Include="Images\240601515_341858897635612_1867212007736063079_n.jpg" />
     <Content Include="Images\240818912_847460039242214_3395725436195583447_n.jpg" />
     <Content Include="Images\5 giai phap phuc hoi kinh te BD.png" />
@@ -227,6 +229,11 @@
     <Content Include="Images\HaNoichichvacciene covis-19tren18.png" />
     <Content Include="Images\HaNoilapkyluctiemhon411kvaccine.png" />
     <Content Include="Images\HeTriThucViet.jpg" />
+    <Content Include="Images\hinh.jpeg" />
+    <Content Include="Images\hinh1.jpeg" />
+    <Content Include="Images\hinh2.jpg" />
+    <Content Include="Images\hinh3.png" />
+    <Content Include="Images\hinh4.png" />
     <Content Include="Images\hoang-liet-2-1631693396481998326095.jpg" />
     <Content Include="Images\hon103trieulieuvacxin.png" />
     <Content Include="Images\HoTroCuuNguoi.jpg" />
@@ -1127,6 +1134,7 @@
     <Content Include="tinymce\langs\readme.md" />
     <Content Include="tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
     <Content Include="tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
+    <Content Include="Views\Home\VideoMoiPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

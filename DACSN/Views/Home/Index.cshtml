@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-lg-7">
-
+            @Html.Action("BanTinMoiNhatPartial", "Home")
         </div>
         <div class="col-lg-5 well">
             <h3 class="tle1" style="color:darkblue"><img src="~/Images/TieuDe.png" style="height:25px;width:10px;" />&#160;<b>Diễn biến dịch</b></h3>
@@ -28,7 +28,7 @@
     <div class="row">
         <div class="col-lg-6">
             <h3 class="tle1" style="color:darkblue"><img src="~/Images/TieuDe.png" style="height:25px;width:10px;" />&#160;<b>Chỉ đạo chống dịch</b></h3>
-
+            @Html.Action("ChiDaoPartial", "Home")
         </div>
         <div class="col-lg-6">
             <h3 class="tle1" style="color:darkblue"><img src="~/Images/TieuDe.png" style="height:25px;width:10px;" />&#160;<b>Bản tin COVID - 19</b></h3>
@@ -45,12 +45,17 @@
 
     <h3 class="tle1" style="color:darkblue"><img src="~/Images/TieuDe.png" style="height:25px;width:10px;" />&#160;<b>Video</b></h3>
     <div class="row">
-
+        <div class="col-lg-6 ">
+            @Html.Action("VideoMoiPartial", "Home")
+        </div>
+        <div class="col-lg-6 well">
+            
+        </div>
     </div>
     <hr style="" />
 
     <h3 class="tle1" style="color:darkblue"><img src="~/Images/TieuDe.png" style="height:25px;width:10px;" />&#160;<b>Tin tức</b></h3>
     <div class="row">
-
+        @Html.Action("BanTinPartial", "Home")
     </div>
 </div>
