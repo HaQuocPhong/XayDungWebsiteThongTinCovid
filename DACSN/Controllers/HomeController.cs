@@ -9,13 +9,13 @@ namespace DACSN.Controllers
 {
     public class HomeController : Controller
     {
-        dbDuLieuYTeDataContext db = new dbDuLieuYTeDataContext();
+        dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext();
         // GET: Home
         
         //tintuc
-        private List<TinTuc> LayTinTucMoi(int count)
+        private List<BaiViet> LayTinTucMoi(int count)
         {
-            return db.TinTucs.OrderByDescending(a => a.NgayCapNhat).Take(count).ToList();
+            return db.BaiViets.OrderByDescending(a => a.NgayViet).Take(count).ToList();
         }
         public ActionResult TinTucPartial()
         {
@@ -23,7 +23,7 @@ namespace DACSN.Controllers
             return View(ListTinTuc);
         }
 
-        //video
+        /*//video
         private List<Video> LayVideoMoi(int count)
         {
             return db.Videos.OrderByDescending(a => a.NgayCapNhatVideo).Take(count).ToList();
@@ -57,13 +57,13 @@ namespace DACSN.Controllers
             var ListChiDao = LayChiDaoMoi(3);
             return View(ListChiDao);
         }
-
+        */
         public ActionResult Index()
         {        
             return View();
         }
 
-        public ActionResult TinTuc()
+        /*public ActionResult TinTuc()
         {
             var ListTinTuc = LayTinTucMoi(8);
             return View(ListTinTuc);
@@ -100,8 +100,8 @@ namespace DACSN.Controllers
         public ActionResult DieuCanBiet()
         {
             return View();
-        }
-
+        }*/
+        
 
     }
 }

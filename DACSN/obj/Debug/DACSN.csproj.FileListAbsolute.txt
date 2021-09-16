@@ -429,4 +429,8 @@ D:\Downloads\Compressed\DoAnCoSoNganh_NhomF1-main_2\DoAnCoSoNganh_NhomF1-main\Do
 D:\Downloads\Compressed\DoAnCoSoNganh_NhomF1-main_2\DoAnCoSoNganh_NhomF1-main\DoAnCoSoNganh_NhomF1-main\DACSN\obj\Debug\DACSN.csproj.CopyComplete
 D:\Downloads\Compressed\DoAnCoSoNganh_NhomF1-main_2\DoAnCoSoNganh_NhomF1-main\DoAnCoSoNganh_NhomF1-main\DACSN\obj\Debug\DACSN.dll
 D:\Downloads\Compressed\DoAnCoSoNganh_NhomF1-main_2\DoAnCoSoNganh_NhomF1-main\DoAnCoSoNganh_NhomF1-main\DACSN\obj\Debug\DACSN.pdb
+D:\Documents\DACSN\DACSN\bin\PagedList.dll
+D:\Documents\DACSN\DACSN\bin\PagedList.Mvc.dll
+D:\Documents\DACSN\DACSN\bin\PagedList.xml
+D:\Documents\DACSN\DACSN\bin\PagedList.Mvc.xml
 D:\Documents\DACSN\DACSN\obj\Debug\DACSN.csproj.AssemblyReference.cache

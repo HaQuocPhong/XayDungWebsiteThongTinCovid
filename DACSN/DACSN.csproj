@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -25,6 +26,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>4.3</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +48,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Linq" />
@@ -170,6 +178,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Admin\Controllers\BaiVietController.cs" />
+    <Compile Include="Areas\Admin\Controllers\DanhMucController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -177,10 +187,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\dbDuLieuYTe.designer.cs">
+    <Compile Include="Models\dbDuLieuYTeBD.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dbDuLieuYTe.dbml</DependentUpon>
+      <DependentUpon>dbDuLieuYTeBD.dbml</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -194,37 +204,48 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Chart.css" />
     <Content Include="Content\Chart.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="CSS\css.css" />
     <Content Include="CSS\dangnhap.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Image\240818912_847460039242214_3395725436195583447_n.jpg" />
-    <Content Include="Image\AnToanCovid19.jpg" />
-    <Content Include="Image\banner.jpg" />
-    <Content Include="Image\Chidao1.jpg" />
-    <Content Include="Image\Chidao2.jpg" />
-    <Content Include="Image\Chidao3.jpg" />
-    <Content Include="Image\CongThongTinDienTuBoYTe.jpg" />
-    <Content Include="Image\CongThongTinDienTuChinhPhu.jpg" />
-    <Content Include="Image\GiaDinh.jpg" />
-    <Content Include="Image\HaNoichichvacciene covis-19tren18.png" />
-    <Content Include="Image\HaNoilapkyluctiemhon411kvaccine.png" />
-    <Content Include="Image\HeTriThucViet.jpg" />
-    <Content Include="Image\hon103trieulieuvacxin.png" />
-    <Content Include="Image\HoTroCuuNguoi.jpg" />
-    <Content Include="Image\logo.png" />
-    <Content Include="Image\LogoBD.ico" />
-    <Content Include="Image\Logobinhduong.png" />
-    <Content Include="Image\Microsoft-logo.png" />
-    <Content Include="Image\nen.png" />
-    <Content Include="Image\SucKhoeDoiSong.jpg" />
-    <Content Include="Image\technology group.png" />
-    <Content Include="Image\tiepnhan200000lieuvaccine.png" />
-    <Content Include="Image\TieuDe.png" />
-    <Content Include="Image\vnpost.png" />
-    <Content Include="Image\ys.jpg" />
+    <Content Include="Images\240601515_341858897635612_1867212007736063079_n.jpg" />
+    <Content Include="Images\240818912_847460039242214_3395725436195583447_n.jpg" />
+    <Content Include="Images\5 giai phap phuc hoi kinh te BD.png" />
+    <Content Include="Images\AnToanCovid19.jpg" />
+    <Content Include="Images\banner.jpg" />
+    <Content Include="Images\Ca Benh Moi.png" />
+    <Content Include="Images\Chidao1.jpg" />
+    <Content Include="Images\Chidao2.jpg" />
+    <Content Include="Images\Chidao3.jpg" />
+    <Content Include="Images\CongThongTinDienTuBoYTe.jpg" />
+    <Content Include="Images\CongThongTinDienTuChinhPhu.jpg" />
+    <Content Include="Images\F0 khoi benh.png" />
+    <Content Include="Images\GiaDinh.jpg" />
+    <Content Include="Images\HaNoichichvacciene covis-19tren18.png" />
+    <Content Include="Images\HaNoilapkyluctiemhon411kvaccine.png" />
+    <Content Include="Images\HeTriThucViet.jpg" />
+    <Content Include="Images\hoang-liet-2-1631693396481998326095.jpg" />
+    <Content Include="Images\hon103trieulieuvacxin.png" />
+    <Content Include="Images\HoTroCuuNguoi.jpg" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\LogoBD.ico" />
+    <Content Include="Images\Logobinhduong.png" />
+    <Content Include="Images\Microsoft-logo.png" />
+    <Content Include="Images\nen.png" />
+    <Content Include="Images\So ca mac covic giam .png" />
+    <Content Include="Images\So ca nhiem giam.png" />
+    <Content Include="Images\SucKhoeDoiSong.jpg" />
+    <Content Include="Images\technology group.png" />
+    <Content Include="Images\TiemCovicMui2Cham.png" />
+    <Content Include="Images\tiepnhan200000lieuvaccine.png" />
+    <Content Include="Images\TieuDe.png" />
+    <Content Include="Images\TinhHinhCovicBD.png" />
+    <Content Include="Images\trao 1k phan qua cho tptdm.png" />
+    <Content Include="Images\vnpost.png" />
+    <Content Include="Images\ys.jpg" />
     <Content Include="Plugin\AdminTemplate\css\animate.min.css" />
     <Content Include="Plugin\AdminTemplate\css\bootstrap.min.css" />
     <Content Include="Plugin\AdminTemplate\css\calendar\fullcalendar.css" />
@@ -920,18 +941,11 @@
     <Content Include="Plugin\nivo-slide\js\jquery.nivo.slider.pack.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Models\dbDuLieuYTe.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>dbDuLieuYTe.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Areas\Admin\Views\Admin\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Admin\DangNhap.cshtml" />
-    <None Include="Models\dbDuLieuYTe.dbml.layout">
-      <DependentUpon>dbDuLieuYTe.dbml</DependentUpon>
-    </None>
+    <Content Include="Areas\Admin\Views\BaiViet\Index.cshtml" />
     <Content Include="Plugin\AdminTemplate\css\datatables\images\Sorting icons.psd" />
     <Content Include="Plugin\AdminTemplate\fonts\fonts\fontawesome-webfont.eot" />
     <Content Include="Plugin\AdminTemplate\fonts\fonts\fontawesome-webfont.ttf" />
@@ -988,6 +1002,22 @@
     <Content Include="Plugin\AdminTemplate\js\datatables\tools\TableTools-master\images\psd\printer.psd" />
     <Content Include="Plugin\AdminTemplate\js\datatables\tools\TableTools-master\make.sh" />
     <Content Include="Plugin\AdminTemplate\js\maps\us-unemployment.json" />
+    <Content Include="Models\dbDuLieuYTeBD.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>dbDuLieuYTeBD.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Views\DanhMuc\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\DanhMuc\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DanhMuc\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\DanhMuc\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiViet\Edit.cshtml" />
+    <None Include="Models\dbDuLieuYTeBD.dbml.layout">
+      <DependentUpon>dbDuLieuYTeBD.dbml</DependentUpon>
+    </None>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
@@ -1001,6 +1031,71 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="tinymce\jquery.tinymce.min.js" />
+    <Content Include="tinymce\license.txt" />
+    <Content Include="tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce\plugins\emoticons\js\emojis.js" />
+    <Content Include="tinymce\plugins\emoticons\js\emojis.min.js" />
+    <Content Include="tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce\plugins\help\plugin.min.js" />
+    <Content Include="tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce\plugins\print\plugin.min.js" />
+    <Content Include="tinymce\plugins\quickbars\plugin.min.js" />
+    <Content Include="tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce\plugins\template\plugin.min.js" />
+    <Content Include="tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce\skins\content\dark\content.min.css" />
+    <Content Include="tinymce\skins\content\default\content.min.css" />
+    <Content Include="tinymce\skins\content\document\content.min.css" />
+    <Content Include="tinymce\skins\content\writer\content.min.css" />
+    <Content Include="tinymce\skins\ui\oxide-dark\content.inline.min.css" />
+    <Content Include="tinymce\skins\ui\oxide-dark\content.min.css" />
+    <Content Include="tinymce\skins\ui\oxide-dark\content.mobile.min.css" />
+    <Content Include="tinymce\skins\ui\oxide-dark\skin.min.css" />
+    <Content Include="tinymce\skins\ui\oxide-dark\skin.mobile.min.css" />
+    <Content Include="tinymce\skins\ui\oxide\content.inline.min.css" />
+    <Content Include="tinymce\skins\ui\oxide\content.min.css" />
+    <Content Include="tinymce\skins\ui\oxide\content.mobile.min.css" />
+    <Content Include="tinymce\skins\ui\oxide\skin.min.css" />
+    <Content Include="tinymce\skins\ui\oxide\skin.mobile.min.css" />
+    <Content Include="tinymce\themes\mobile\theme.min.js" />
+    <Content Include="tinymce\themes\silver\theme.min.js" />
+    <Content Include="tinymce\tinymce.min.js" />
     <Content Include="Video\HD PHÒNG CHỐNG COVID- 19 TẠI CHUNG CƯ DÀNH CHO NGƯỜI DÂN.mp4" />
     <Content Include="Video\NỖ LỰC CỨU BỆNH NHÂN NẶNG VÀ GIẢM TỶ LỆ TỬ VONG TẠI 12 TRUNG TÂM HỒI SỨC COVID-19 BỆNH VIỆN TUYẾN TW.mp4" />
     <Content Include="Video\Thứ trưởng Bộ Y tế - 4 nhiệm vụ trọng tâm đảm bảo an toàn tại chợ Bình Điền khi mở cửa trở lại.mp4" />
@@ -1029,6 +1124,9 @@
     <Content Include="Views\Home\ChiDaoPartial.cshtml" />
     <Content Include="Views\Home\BanTinPartial.cshtml" />
     <Content Include="Views\Home\BanTinMoiNhatPartial.cshtml" />
+    <Content Include="tinymce\langs\readme.md" />
+    <Content Include="tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
+    <Content Include="tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1049,12 +1147,14 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">

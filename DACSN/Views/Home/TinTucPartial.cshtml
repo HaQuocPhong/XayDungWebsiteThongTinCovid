@@ -1,22 +1,23 @@
-﻿@model IEnumerable<DACSN.Models.TinTuc>
+﻿@model IEnumerable<DACSN.Models.BaiViet>
 
 <style type="text/css">
     .tintuc-img .thumbnail {
         padding-top: 10px;
-        height: 100px; 
+        height: 200px;
+        width:550px;
         display: block;
     }
 
         .tintuc-img .thumbnail img {
             padding-top: 5px;
-            height: 100%;
+            height: 50%;
             display: block;
             padding-bottom: 10px;
             width:20%;
         }
 
     .tintuc-img .News {
-        padding-left: 120px;
+        padding-left: 10px;
     }
 
         .tintuc-img .News a {
@@ -27,21 +28,25 @@
 <div class="row">
     @foreach (var tintuc in Model)
     {
+    <div class="row">
         <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
             <div class="tintuc-img">
                 <div class="thumbnail">
-                    <img src="~/Image/@tintuc.AnhBia" alt="@tintuc.TieuDe" />
+                    <img src="~/Image/@tintuc.Hinh" />
                     <div class="News">
+
                         <div class="TieuDe">
                             <a href="#">@tintuc.TieuDe</a>
                         </div>
+                        <p>@tintuc.NgayViet</p>
                         <div class="NoiDung">
-                            <h3>@tintuc.NoiDung</h3>
+                            <p>@tintuc.TomTat</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     }
 </div>
 

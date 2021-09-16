@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="dbDuLieuYTeBD">
+  <DataContextMoniker Name="/dbDuLieuYTeBDDataContext" />
+  <nestedChildShapes>
+    <classShape Id="c81e82a6-f6bf-47e1-b667-a49bbe006601" absoluteBounds="3.5, 1, 2, 2.5401025390625005">
+      <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/BaiViet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e9c545c3-4f11-4182-bb69-55c649e6f5cf" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1e073edd-0c74-4a3e-aab8-86b8311309e0" absoluteBounds="0.75, 4.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/TaiKhoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cd098825-6028-49a9-9bf9-169bd54e1399" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="89234602-c38b-4b95-b137-423b50368c9e" absoluteBounds="0.75, 1.625, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/DanhMuc" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1fcc8537-c090-406c-856b-e66493037106" absoluteBounds="0.765, 2.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.22199625651042); (3.5 : 2.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/dbDuLieuYTeBDDataContext/DanhMuc/DanhMuc_BaiViet" />
+      <nodes>
+        <classShapeMoniker Id="89234602-c38b-4b95-b137-423b50368c9e" />
+        <classShapeMoniker Id="c81e82a6-f6bf-47e1-b667-a49bbe006601" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

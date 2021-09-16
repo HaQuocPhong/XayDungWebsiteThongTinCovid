@@ -9,7 +9,7 @@ namespace DACSN.Areas.Admin.Controllers
 {
     public class AdminController : Controller
     {
-        dbDuLieuYTeDataContext db = new dbDuLieuYTeDataContext();
+        dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext();
         // GET: Admin/Admin
         public ActionResult Index()
         {
@@ -27,13 +27,14 @@ namespace DACSN.Areas.Admin.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(FormCollection f)
+        public ActionResult Login(FormCollection collection)
         {
-            var sTenDN = f["UserName"];
-            var sMatKhau = f["Password"];
+            var sTenDN = collection["UserName"];
+            var sMatKhau = collection["Password"];
 
-            Tai_Khoan ad = db.Tai_Khoans.SingleOrDefault(n => n.TenDN == sTenDN && n.MatKhau == sMatKhau);
-            if(ad != null)
+            TaiKhoan ad = db.TaiKhoans.SingleOrDefault(n => n.TenDN == sTenDN && n.MatKhau == sMatKhau);
+            
+            if (ad != null)
             {
                 Session["Admin"] = ad;
                 return RedirectToAction("Index", "Admin");
@@ -44,5 +45,14 @@ namespace DACSN.Areas.Admin.Controllers
             }
             return View();
         }
+
+        public ActionResult DangXuat()
+        {
+            Session.Clear();
+
+            return RedirectToAction("DangNhap");
+        }
+
+
     }
 }

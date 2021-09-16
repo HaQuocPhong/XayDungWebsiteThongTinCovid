@@ -1,6 +1,7 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="SHORTCUT ICON" href="~/Images/LogoBD.ico">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -23,6 +24,27 @@
         NProgress.start();
     </script>
 
+    <script src="~/tinymce/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: [
+                'advlist autolink link image lists charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks code fullscreen insertdatetime media nonbreaking',
+                'table emoticons template paste help',
+            ],
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                'forecolor backcolor emoticons | help',
+            menu: {
+                favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+            },
+            menubar: 'favs file edit view insert format tools table help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
+        });
+
+
+    </script>
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
         <![endif]-->
@@ -49,8 +71,7 @@
                     <!-- menu prile quick info -->
                     <div class="profile">
                         <div class="profile_pic">
-                            <!--<img src='~/Images/Members/@Session["temp"]/@Session["image"]' class="img-circle profile_img" />-->
-                            <img src='~/Image/ys.jpg' class="img-circle profile_img" />
+                            <img src='~/Images/ys.jpg' class="img-circle profile_img" />
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
@@ -59,6 +80,7 @@
                     </div>
                     <!-- /menu prile quick info -->
                     <br />
+
                     <!-- sidebar menu -->
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
@@ -68,17 +90,13 @@
                                     <a><i class="fa fa-home"></i> Quản lý tài khoản <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li>
-                                            @Html.ActionLink("Danh sách tài khoản", "DanhSachTk", "Admin")
+                                            <a href="#">Danh sách tài khoản</a>
                                         </li>
                                         <li>
-                                            @Html.ActionLink("Thêm tài khoản", "ThemTk", "Admin")
+                                            <a href="#">Thêm tài khoản</a>
                                         </li>
                                         <li>
-                                            <a id="information" href="">Thông tin cá nhân</a>
-                                            <script>
-                                                document.getElementById('information').href
-                                                    =window.location.origin+'/Accounts/Details/'+@Session["id"];
-                                            </script>
+                                            <a href="#">Thông tin cá nhân</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -108,19 +126,13 @@
                                     <a><i class="fa fa-windows"></i> Quản lý bài viết<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li>
-                                            @Html.ActionLink("Xem bài viết", "Index2", "Posts")
+                                            @Html.ActionLink("Tạo bài viết", "Create", "BaiViet")
                                         </li>
                                         <li>
-                                            @Html.ActionLink("Duyệt bài viết", "Index", "Posts")
+                                            @Html.ActionLink("Danh sách bài viết", "Index", "BaiViet")
                                         </li>
                                         <li>
-                                            @Html.ActionLink("Tạo bài viết", "Create", "Posts")
-                                        </li>
-                                        <li>
-                                            @Html.ActionLink("Xem Danh Mục Cha", "Index", "XCategories")
-                                        </li>
-                                        <li>
-                                            @Html.ActionLink("Xem Danh Mục Con", "Index", "SCategories")
+                                            @Html.ActionLink("Danh sách danh mục", "Index", "DanhMuc")
                                         </li>
                                     </ul>
                                 </li>
@@ -131,7 +143,7 @@
                         </div>
                     </div>
                     <!-- /sidebar menu -->
-                    
+
                 </div>
             </div>
             <!-- top navigation -->
@@ -145,30 +157,17 @@
                             <li class="">
                                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                     <!--<img src='~/Images/Members/@Session["temp"]/@Session["image"]' class="img-circle profile_img" />-->
-                                    <img src='~/Image/ys.jpg'  class="img-circle profile_img" />
-                                    
+                                    <img src='~/Images/ys.jpg' class="img-circle profile_img" />
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
                                     <li>
-                                        <a href="#;"> Thông tin cá nhân</a>
+                                        <a href="#"> Thông tin cá nhân</a>
                                     </li>
                                     <li>
-                                        <a href="#;">
-                                            <span class="badge bg-red pull-right">50%</span>
-                                            <span>Cài đặt</span>
-                                        </a>
+                                        <a href="#">Trợ giúp</a>
                                     </li>
                                     <li>
-                                        <a href="#;">Trợ giúp</a>
-                                    </li>
-                                    <li>
-                                        <a id="xxlinkLogin" href="#">
-                                            @Html.ActionLink("Đăng xuất", "Logout", "Admin")
-                                            <i class="fa fa-sign-out pull-right"></i>
-                                        </a>
-                                        <script>
-                                            $('#linkLogin').attr('href', window.location.origin + '/Login/Index');
-                                        </script>
+                                        @Html.ActionLink("Đăng xuất","DangXuat","Admin")
                                     </li>
                                 </ul>
                             </li>
@@ -180,7 +179,7 @@
             <!-- page content -->
             <div class="right_col" role="main">
                 @RenderBody()
-                
+
             </div>
             <!-- /page content -->
         </div>
@@ -221,212 +220,7 @@
     <script src="~/Plugin/AdminTemplate/js/flot/curvedLines.js"></script>
     <script src="~/Plugin/AdminTemplate/js/flot/jquery.flot.resize.js"></script>
 
-    <script>
-        $(document).ready(function () {
-            // [17, 74, 6, 39, 20, 85, 7]
-            //[82, 23, 66, 9, 99, 6, 2]
-            var data1 = [[gd(2012, 1, 1), 17], [gd(2012, 1, 2), 74], [gd(2012, 1, 3), 6], [gd(2012, 1, 4), 39], [gd(2012, 1, 5), 20], [gd(2012, 1, 6), 85], [gd(2012, 1, 7), 7]];
-
-            var data2 = [[gd(2012, 1, 1), 82], [gd(2012, 1, 2), 23], [gd(2012, 1, 3), 66], [gd(2012, 1, 4), 9], [gd(2012, 1, 5), 119], [gd(2012, 1, 6), 6], [gd(2012, 1, 7), 9]];
-            $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
-                data1, data2
-            ], {
-                series: {
-                    lines: {
-                        show: false,
-                        fill: true
-                    },
-                    splines: {
-                        show: true,
-                        tension: 0.4,
-                        lineWidth: 1,
-                        fill: 0.4
-                    },
-                    points: {
-                        radius: 0,
-                        show: true
-                    },
-                    shadowSize: 2
-                },
-                grid: {
-                    verticalLines: true,
-                    hoverable: true,
-                    clickable: true,
-                    tickColor: "#d5d5d5",
-                    borderWidth: 1,
-                    color: '#fff'
-                },
-                colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
-                xaxis: {
-                    tickColor: "rgba(51, 51, 51, 0.06)",
-                    mode: "time",
-                    tickSize: [1, "day"],
-                    //tickLength: 10,
-                    axisLabel: "Date",
-                    axisLabelUseCanvas: true,
-                    axisLabelFontSizePixels: 12,
-                    axisLabelFontFamily: 'Verdana, Arial',
-                    axisLabelPadding: 10
-                    //mode: "time", timeformat: "%m/%d/%y", minTickSize: [1, "day"]
-                },
-                yaxis: {
-                    ticks: 8,
-                    tickColor: "rgba(51, 51, 51, 0.06)",
-                },
-                tooltip: false
-            });
-
-            function gd(year, month, day) {
-                return new Date(year, month - 1, day).getTime();
-            }
-        });
-    </script>
-    <!-- worldmap -->
-    <script src="~/Plugin/AdminTemplate/js/maps/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="~/Plugin/AdminTemplate/js/maps/gdp-data.js"></script>
-    <script src="~/Plugin/AdminTemplate/js/maps/jquery-jvectormap-world-mill-en.js"></script>
-    <script src="~/Plugin/AdminTemplate/js/maps/jquery-jvectormap-us-aea-en.js"></script>
-    <script>
-        $(function () {
-            $('#world-map-gdp').vectorMap({
-                map: 'world_mill_en',
-                backgroundColor: 'transparent',
-                zoomOnScroll: false,
-                series: {
-                    regions: [{
-                        values: gdpData,
-                        scale: ['#E6F2F0', '#149B7E'],
-                        normalizeFunction: 'polynomial'
-                    }]
-                },
-                onRegionTipShow: function (e, el, code) {
-                    el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-                }
-            });
-        });
-    </script>
-    <!-- skycons -->
-
-    <script src="~/Plugin/AdminTemplate/js/skycons/skycons.js"></script>
-    <script>
-        var icons = new Skycons({
-            "color": "#73879C"
-        }),
-            list = [
-                "clear-day", "clear-night", "partly-cloudy-day",
-                "partly-cloudy-night", "cloudy", "rain", "sleet", "snow", "wind",
-                "fog"
-            ],
-            i;
-
-        for (i = list.length; i--;)
-            icons.set(list[i], list[i]);
-
-        icons.play();
-    </script>
-    <!-- dashbord linegraph -->
-    <script>
-        var doughnutData = [
-            {
-                value: 30,
-                color: "#455C73"
-            },
-            {
-                value: 30,
-                color: "#9B59B6"
-            },
-            {
-                value: 60,
-                color: "#BDC3C7"
-            },
-            {
-                value: 100,
-                color: "#26B99A"
-            },
-            {
-                value: 120,
-                color: "#3498DB"
-            }
-        ];
-        var myDoughnut = new Chart(document.getElementById("canvas1").getContext("2d")).Doughnut(doughnutData);
-    </script>
-    <!-- /dashbord linegraph -->
-    <!-- datepicker -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            var cb = function (start, end, label) {
-                console.log(start.toISOString(), end.toISOString(), label);
-                $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-            }
-
-            var optionSet1 = {
-                startDate: moment().subtract(29, 'days'),
-                endDate: moment(),
-                minDate: '01/01/2012',
-                maxDate: '12/31/2015',
-                dateLimit: {
-                    days: 60
-                },
-                showDropdowns: true,
-                showWeekNumbers: true,
-                timePicker: false,
-                timePickerIncrement: 1,
-                timePicker12Hour: true,
-                ranges: {
-                    'Today': [moment(), moment()],
-                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-                    'This Month': [moment().startOf('month'), moment().endOf('month')],
-                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-                },
-                opens: 'left',
-                buttonClasses: ['btn btn-default'],
-                applyClass: 'btn-small btn-primary',
-                cancelClass: 'btn-small',
-                format: 'MM/DD/YYYY',
-                separator: ' to ',
-                locale: {
-                    applyLabel: 'Submit',
-                    cancelLabel: 'Clear',
-                    fromLabel: 'From',
-                    toLabel: 'To',
-                    customRangeLabel: 'Custom',
-                    daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-                    monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    firstDay: 1
-                }
-            };
-            $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-            $('#reportrange').daterangepicker(optionSet1, cb);
-            $('#reportrange').on('show.daterangepicker', function () {
-                console.log("show event fired");
-            });
-            $('#reportrange').on('hide.daterangepicker', function () {
-                console.log("hide event fired");
-            });
-            $('#reportrange').on('apply.daterangepicker', function (ev, picker) {
-                console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-            });
-            $('#reportrange').on('cancel.daterangepicker', function (ev, picker) {
-                console.log("cancel event fired");
-            });
-            $('#options1').click(function () {
-                $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-            });
-            $('#options2').click(function () {
-                $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-            });
-            $('#destroy').click(function () {
-                $('#reportrange').data('daterangepicker').remove();
-            });
-        });
-    </script>
-    <script>
-        NProgress.done();
-    </script>
+   
     <!-- /datepicker -->
     <!-- /footer content -->
 </body>
