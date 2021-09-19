@@ -19,31 +19,6 @@ namespace DACSN.Controllers
             var ListTinTuc = db.BaiViets.Where(s => s.IdDM == 2).OrderByDescending(s => s.NgayViet).Take(3);
             return View(ListTinTuc);
         }
-
-        /*//video
-        private List<Video> LayVideoMoi(int count)
-        {
-            return db.Videos.OrderByDescending(a => a.NgayCapNhatVideo).Take(count).ToList();
-        }
-        public ActionResult VideoPartial()
-        {
-            var ListVideo = LayVideoMoi(4);
-            return View(ListVideo);
-        }
-
-        //vaccine
-        private List<Vaccine>LayVaccineMoi(int count)
-        {
-            return db.Vaccines.OrderByDescending(a => a.NgayCapNhatCD).Take(count).ToList();
-        }
-
-        public ActionResult VaccinePartial()
-        {
-            var ListVaccine = LayVaccineMoi(4);
-            return View(ListVaccine);
-        }
-
-        */
         
         public ActionResult ChiDaoPartial()
         {
@@ -73,36 +48,24 @@ namespace DACSN.Controllers
             var ListVideo = db.BaiViets.Where(s => s.IdDM == 3).OrderByDescending(s => s.NgayViet).Take(1);
             return View(ListVideo);
         }
-        /*public ActionResult TinTuc()
-        {
-            var ListTinTuc = LayTinTucMoi(8);
-            return View(ListTinTuc);
-        }
-        /*
-        
 
-        
-
-        public ActionResult DienBienDich()
+        public ActionResult VideoPartial()
         {
-            return View();
-        }
-
-        public ActionResult Video()
-        {
-            var ListVideo = LayVideoMoi(8);
+            var ListVideo = db.BaiViets.Where(s => s.IdDM == 3).OrderBy(s => s.NgayViet).Take(3);
             return View(ListVideo);
         }
 
-        public ActionResult KhuyenCao()
+        public ActionResult VaccineMoiPartial()
         {
-            return View();
+            var ListVideo = db.BaiViets.Where(s => s.IdDM == 4).OrderByDescending(s => s.NgayViet).Take(1);
+            return View(ListVideo);
         }
 
-        public ActionResult DieuCanBiet()
+        public ActionResult VaccinePartial()
         {
-            return View();
-        }*/
+            var ListVideo = db.BaiViets.Where(s => s.IdDM == 4).OrderBy(s => s.NgayViet).Take(3);
+            return View(ListVideo);
+        }
 
 
     }

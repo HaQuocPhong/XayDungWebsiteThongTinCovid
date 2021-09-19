@@ -1,49 +1,35 @@
-﻿@model IEnumerable<DACSN.Models.Video>
+﻿@model IEnumerable<DACSN.Models.BaiViet>
 
 <style type="text/css">
-    .video .thumbnail {
-       padding-top: 10px;  
-       height:300px;
-       display: block;
+    .thumbnail {
+        width: 600px;
+        display: block;
+        border: none;
     }
 
-        .video .thumbnail video{
-            padding-top: 5px;
-            height: 53%;
-            display: block;
-            padding-bottom: 10px;
-            width: 100%;
-        }
+    #img {
+        padding-top: 13px;
+    }
 
-   
-        .video .New a {
-            text-decoration: none
-        }
-
-        .video .New .TieuDe {
-            text-align: center;
-        }
+    #a {
+        color: #000000;
+        text-decoration: none;
+        font-weight: bold;
+    }
 </style>
 
 <div class="row">
     @foreach (var video in Model)
     {
-        <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-            <div class="video">
-                <div class="thumbnail">
-                    <video controls>
-                        <source src="~/Video/@video.Video1" />
-                    </video>
-                    <div class="New">
-                        <div class="TieuDe">
-                            <a href="#">@video.TenVideo</a>
-                        </div>
-                        <div class="NoiDung">
-                            <h3>@video.NoiDungVideo</h3>
-                        </div>
-                    </div>
-                </div>
+        <div class="thumbnail col-lg-12">
+            <div class="col-lg-4" id="img">
+                <img src="~/Images/@video.Hinh" style="height:130px;width:180px" />
+            </div>
+            <div class="col-lg-8">
+                <h4><a id="a" href="#">@video.TieuDe</a></h4>
+                <p>@video.TomTat</p>
             </div>
         </div>
     }
+
 </div>

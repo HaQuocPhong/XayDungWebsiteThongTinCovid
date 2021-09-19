@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DuLieuYTeBD" Class="dbDuLieuYTeBDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GI2B3FR;Initial Catalog=DuLieuYTeBD;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DuLieuYTeBDConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.BaiViet" Member="BaiViets">
-    <Type Name="BaiViet">
-      <Column Name="IdBV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TieuDe" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="TomTat" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="NoiDung" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NgayViet" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Hinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NguoiViet" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="IdDM" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Tag" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
-      <Association Name="DanhMuc_BaiViet" Member="DanhMuc" ThisKey="IdDM" OtherKey="IdDM" Type="DanhMuc" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.TaiKhoan" Member="TaiKhoans">
     <Type Name="TaiKhoan">
       <Column Name="IdTK" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -26,6 +12,21 @@
       <Column Name="IdDM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="TenDM" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Association Name="DanhMuc_BaiViet" Member="BaiViets" ThisKey="IdDM" OtherKey="IdDM" Type="BaiViet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BaiViet" Member="BaiViets">
+    <Type Name="BaiViet">
+      <Column Name="IdBV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TieuDe" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="TomTat" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NoiDung" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NgayViet" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Hinh" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NguoiViet" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="IdDM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tag" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="LinkVideo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="DanhMuc_BaiViet" Member="DanhMuc" ThisKey="IdDM" OtherKey="IdDM" Type="DanhMuc" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

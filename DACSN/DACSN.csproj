@@ -1121,13 +1121,9 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\TinTuc.cshtml" />
-    <Content Include="Views\Home\DienBienDich.cshtml" />
-    <Content Include="Views\Home\Video.cshtml" />
     <Content Include="Views\Home\KhuyenCao.cshtml" />
     <Content Include="Views\Home\DieuCanBiet.cshtml" />
     <Content Include="Views\Home\TinTucPartial.cshtml" />
-    <Content Include="Views\Home\VideoPartial.cshtml" />
-    <Content Include="Views\Home\VaccinePartial.cshtml" />
     <Content Include="Views\Home\ChiDaoPartial.cshtml" />
     <Content Include="Views\Home\BanTinPartial.cshtml" />
     <Content Include="Views\Home\BanTinMoiNhatPartial.cshtml" />
@@ -1135,6 +1131,9 @@
     <Content Include="tinymce\skins\ui\oxide-dark\fonts\tinymce-mobile.woff" />
     <Content Include="tinymce\skins\ui\oxide\fonts\tinymce-mobile.woff" />
     <Content Include="Views\Home\VideoMoiPartial.cshtml" />
+    <Content Include="Views\Home\VideoPartial.cshtml" />
+    <Content Include="Views\Home\VaccineMoiPartial.cshtml" />
+    <Content Include="Views\Home\VaccinePartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

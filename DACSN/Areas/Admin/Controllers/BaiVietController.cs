@@ -43,6 +43,8 @@ namespace DACSN.Areas.Admin.Controllers
                 ViewBag.TieuDe = f["sTieuDe"];
                 ViewBag.TomTat = f["sTomTat"];
                 ViewBag.NoiDung = f["sNoiDung"];
+                ViewBag.LinkVideo = f["sLinkVideo"];
+                ViewBag.NguoiViet = f["sNguoiViet"];
                 ViewBag.MaDM = new SelectList(db.DanhMucs.ToList().OrderBy(n => n.TenDM), "IdDM", "TenDM", f["MaDM"]);
                 ViewBag.Tag = f["sTag"];
                 return View();
@@ -69,6 +71,8 @@ namespace DACSN.Areas.Admin.Controllers
                     bv.NguoiViet = f["sNguoiViet"];
                     bv.NgayViet = DateTime.Now;
                     bv.Tag = f["sTag"];
+                    bv.LinkVideo = f["sLinkVideo"];
+                    bv.NguoiViet = f["sNguoiViet"];
                     bv.IdDM = int.Parse(f["IdDM"]);
                     db.BaiViets.InsertOnSubmit(bv);
                     db.SubmitChanges();
@@ -157,6 +161,7 @@ namespace DACSN.Areas.Admin.Controllers
                 bv.NoiDung = f["sNoiDung"];
                 bv.NgayViet = DateTime.Now;
                 bv.NguoiViet = f["sNguoiViet"];
+                bv.LinkVideo = f["sLinkVideo"];
                 bv.Tag = f["sTag"];
                 bv.IdDM = int.Parse(f["IdDM"]);
                 db.SubmitChanges();

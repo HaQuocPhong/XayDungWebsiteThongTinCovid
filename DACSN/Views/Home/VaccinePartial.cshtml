@@ -1,46 +1,36 @@
-﻿@model IEnumerable<DACSN.Models.Vaccine>
+﻿@model IEnumerable<DACSN.Models.BaiViet>
 
 <style type="text/css">
-    .vaccine-img .thumbnail {
-        padding-top: 10px;
-        height: 100px;
+    .thumbnail {
+        width: 600px;
         display: block;
+        border: none;
     }
 
-        .vaccine-img .thumbnail img {
-            padding-top: 5px;
-            height: 100%;
-            display: block;
-            padding-bottom: 10px;
-            width: 20%;
-        }
-
-    .vaccine-img .News {
-        padding-left: 120px;
+    #img {
+        padding-top: 13px;
     }
 
-        .vaccine-img .News a {
-            text-decoration: none
-        }
+    #a {
+        color: #000000;
+        text-decoration: none;
+        font-weight: bold;
+    }
 </style>
 
 <div class="row">
-    @foreach (var vac in Model)
+    @foreach (var vaccine in Model)
     {
-        <div class="col-sm-6 col-md-6 col-lg-6 col-xs-6">
-            <div class="vaccine-img">
-                <div class="thumbnail">
-                    <img src="~/Image/@vac.AnhCD" alt="@vac.TenChuDeVaccine" />
-                    <div class="News">
-                        <div class="TieuDe">
-                            <a href="#">@vac.TenChuDeVaccine</a>
-                        </div>
-                        <div class="NoiDung">
-                            <h3>@vac.NoiDungCD</h3>
-                        </div>
-                    </div>
-                </div>
+        <div class="thumbnail col-lg-12">
+            <div class="col-lg-4" id="img">
+                <img src="~/Images/@vaccine.Hinh" style="height:130px;width:180px" />
+            </div>
+            <div class="col-lg-8">
+                <h4><a id="a" href="#">@vaccine.TieuDe</a></h4>
+                <p>@vaccine.TomTat</p>
             </div>
         </div>
     }
+
 </div>
+

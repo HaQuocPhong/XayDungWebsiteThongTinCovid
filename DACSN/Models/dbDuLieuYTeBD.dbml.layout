@@ -2,29 +2,29 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="dbDuLieuYTeBD">
   <DataContextMoniker Name="/dbDuLieuYTeBDDataContext" />
   <nestedChildShapes>
-    <classShape Id="c81e82a6-f6bf-47e1-b667-a49bbe006601" absoluteBounds="3.5, 1, 2, 2.5401025390625005">
-      <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/BaiViet" />
-      <nestedChildShapes>
-        <elementListCompartment Id="e9c545c3-4f11-4182-bb69-55c649e6f5cf" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
-    <classShape Id="1e073edd-0c74-4a3e-aab8-86b8311309e0" absoluteBounds="0.75, 4.75, 2, 1.3862939453125005">
+    <classShape Id="6ae0dd02-52bd-4a2f-a29b-b5e834ec401e" absoluteBounds="0.75, 4.75, 2, 1.3862939453125005">
       <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/TaiKhoan" />
       <nestedChildShapes>
-        <elementListCompartment Id="cd098825-6028-49a9-9bf9-169bd54e1399" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="40b3e300-dfe5-4fd3-a2d1-688a45d2a5aa" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="89234602-c38b-4b95-b137-423b50368c9e" absoluteBounds="0.75, 1.625, 2, 1.1939925130208335">
+    <classShape Id="86919343-c9fb-4ecd-80bb-c560de91c73d" absoluteBounds="0.75, 1.75, 2, 1.1939925130208335">
       <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/DanhMuc" />
       <nestedChildShapes>
-        <elementListCompartment Id="1fcc8537-c090-406c-856b-e66493037106" absoluteBounds="0.765, 2.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1def85d6-f01c-4607-803e-505e8067199b" absoluteBounds="0.765, 2.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 2.22199625651042); (3.5 : 2.22199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <classShape Id="777a36bf-f480-41e3-b6e2-e4c00ca0d4bc" absoluteBounds="3.5, 1, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/BaiViet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8f3c293-5b9d-407d-aa52-90567bb1e617" absoluteBounds="3.515, 1.46, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.34699625651042); (3.5 : 2.34699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/dbDuLieuYTeBDDataContext/DanhMuc/DanhMuc_BaiViet" />
       <nodes>
-        <classShapeMoniker Id="89234602-c38b-4b95-b137-423b50368c9e" />
-        <classShapeMoniker Id="c81e82a6-f6bf-47e1-b667-a49bbe006601" />
+        <classShapeMoniker Id="86919343-c9fb-4ecd-80bb-c560de91c73d" />
+        <classShapeMoniker Id="777a36bf-f480-41e3-b6e2-e4c00ca0d4bc" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
