@@ -61,7 +61,7 @@
         <div class="main_container">
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
-                    <div class="navbar nav_title" style="border: 0;">
+                    <div  style="border: 0;">
                         <a href="" id="linkHomePage" class="site_title"><i class="fa fa-paw"></i> <span>Admin Page</span></a>
                         <script>
                             window.document.getElementById('linkHomePage').href = window.location.origin;
@@ -90,30 +90,13 @@
                                     <a><i class="fa fa-home"></i> Quản lý tài khoản <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li>
-                                            <a href="#">Danh sách tài khoản</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Thêm tài khoản</a>
-                                        </li>
-                                        <li>
                                             <a href="#">Thông tin cá nhân</a>
                                         </li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-bar-chart-o"></i> Thống Kê <span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu" style="display: none">
                                         <li>
-                                            <a href="#">Biểu đồ thống kê</a>
+                                            <a href="#">Đổi mật khẩu</a>
                                         </li>
                                         <li>
-                                            <a href="#">Lượng truy cập</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Lượt đăng ký thành viên</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Lương bài post</a>
+                                            @Html.ActionLink("Đăng xuất", "DangXuat", "Admin")
                                         </li>
                                     </ul>
                                 </li>
@@ -126,24 +109,12 @@
                                     <a><i class="fa fa-windows"></i> Quản lý bài viết<span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li>
-                                            @Html.ActionLink("Tạo bài viết", "Create", "BaiViet")
+                                            <a href="#">Tạo bài viết</a>
                                         </li>
                                         <li>
-                                            <a href="#">Duyệt bài</a>
-                                        </li>
-                                        <li>
-                                            @Html.ActionLink("Danh sách bài viết", "Index", "BaiViet")
-                                        </li>
-                                        <li>
-                                            @Html.ActionLink("Danh sách danh mục", "Index", "DanhMuc")
+                                            <a href="#">Danh sách bài viết</a>
                                         </li>
                                     </ul>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-laptop"></i>Quản lý khai báo y tế</a>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-border" ></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -173,7 +144,7 @@
                                         <a href="#">Trợ giúp</a>
                                     </li>
                                     <li>
-                                        @Html.ActionLink("Đăng xuất","DangXuat","Admin")
+                                        @Html.ActionLink("Đăng xuất", "DangXuat", "Admin")
                                     </li>
                                 </ul>
                             </li>
@@ -226,7 +197,7 @@
     <script src="~/Plugin/AdminTemplate/js/flot/curvedLines.js"></script>
     <script src="~/Plugin/AdminTemplate/js/flot/jquery.flot.resize.js"></script>
 
-   
+
     <!-- /datepicker -->
     <!-- /footer content -->
 </body>

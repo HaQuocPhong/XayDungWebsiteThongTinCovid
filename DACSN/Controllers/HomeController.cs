@@ -67,6 +67,36 @@ namespace DACSN.Controllers
             return View(ListVideo);
         }
 
+        public ActionResult ChiTietTinTuc(int id)
+        {
+            var bv = from s in db.BaiViets
+                       where s.IdBV == id
+                       select s;
+            return View(bv.Single());
+        }
 
+        public ActionResult Video()
+        {
+            var ListVideo = db.BaiViets.Where(s => s.IdDM == 3).OrderByDescending(s => s.NgayViet).Take(9);
+            return View(ListVideo);
+        }
+
+        public ActionResult ChiDao()
+        {
+            var ListChiDao = db.BaiViets.Where(s => s.IdDM == 1).OrderByDescending(s => s.NgayViet).Take(9);
+            return View(ListChiDao);
+        }
+
+        public ActionResult Vaccine()
+        {
+            var ListVideo = db.BaiViets.Where(s => s.IdDM == 4).OrderByDescending(s => s.NgayViet).Take(9);
+            return View(ListVideo);
+        }
+
+        public ActionResult TinTuc()
+        {
+            var ListTinTuc = db.BaiViets.Where(s => s.IdDM == 2).OrderByDescending(s => s.NgayViet).Take(9);
+            return View(ListTinTuc);
+        }
     }
 }

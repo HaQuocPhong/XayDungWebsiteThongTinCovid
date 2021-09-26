@@ -20,6 +20,7 @@ namespace DACSN.Areas.Admin.Controllers
             return View();
         }
 
+
         [HttpGet]
         public ActionResult DangNhap()
         {
@@ -33,11 +34,15 @@ namespace DACSN.Areas.Admin.Controllers
             var sMatKhau = collection["Password"];
 
             TaiKhoan ad = db.TaiKhoans.SingleOrDefault(n => n.TenDN == sTenDN && n.MatKhau == sMatKhau);
-            
-            if (ad != null)
+            if (ad != null && ad.Quyen == "Admin")
             {
                 Session["Admin"] = ad;
                 return RedirectToAction("Index", "Admin");
+            }
+            else if (ad != null && ad.Quyen == "User")
+            {
+                Session["Admin"] = ad;
+                return RedirectToAction("Index", "User");
             }
             else
             {
@@ -53,6 +58,10 @@ namespace DACSN.Areas.Admin.Controllers
             return RedirectToAction("DangNhap");
         }
 
-
+        [HttpGet]
+        public ActionResult QuenMK()
+        {
+            return View();
+        }
     }
 }

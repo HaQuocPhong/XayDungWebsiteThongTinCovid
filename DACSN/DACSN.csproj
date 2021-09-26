@@ -180,6 +180,7 @@
     <Compile Include="Areas\Admin\Controllers\AdminController.cs" />
     <Compile Include="Areas\Admin\Controllers\BaiVietController.cs" />
     <Compile Include="Areas\Admin\Controllers\DanhMucController.cs" />
+    <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -237,6 +238,7 @@
     <Content Include="Images\hoang-liet-2-1631693396481998326095.jpg" />
     <Content Include="Images\hon103trieulieuvacxin.png" />
     <Content Include="Images\HoTroCuuNguoi.jpg" />
+    <Content Include="Images\icon.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\LogoBD.ico" />
     <Content Include="Images\Logobinhduong.png" />
@@ -1022,6 +1024,9 @@
     <Content Include="Areas\Admin\Views\BaiViet\Details.cshtml" />
     <Content Include="Areas\Admin\Views\BaiViet\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\BaiViet\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_LayoutUser.cshtml" />
+    <Content Include="Areas\Admin\Views\User\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Admin\QuenMK.cshtml" />
     <None Include="Models\dbDuLieuYTeBD.dbml.layout">
       <DependentUpon>dbDuLieuYTeBD.dbml</DependentUpon>
     </None>
@@ -1121,8 +1126,6 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LayoutUser.cshtml" />
     <Content Include="Views\Home\TinTuc.cshtml" />
-    <Content Include="Views\Home\KhuyenCao.cshtml" />
-    <Content Include="Views\Home\DieuCanBiet.cshtml" />
     <Content Include="Views\Home\TinTucPartial.cshtml" />
     <Content Include="Views\Home\ChiDaoPartial.cshtml" />
     <Content Include="Views\Home\BanTinPartial.cshtml" />
@@ -1134,6 +1137,10 @@
     <Content Include="Views\Home\VideoPartial.cshtml" />
     <Content Include="Views\Home\VaccineMoiPartial.cshtml" />
     <Content Include="Views\Home\VaccinePartial.cshtml" />
+    <Content Include="Views\Home\ChiTietTinTuc.cshtml" />
+    <Content Include="Views\Home\Video.cshtml" />
+    <Content Include="Views\Home\ChiDao.cshtml" />
+    <Content Include="Views\Home\Vaccine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

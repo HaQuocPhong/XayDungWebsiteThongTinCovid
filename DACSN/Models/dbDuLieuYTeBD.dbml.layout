@@ -2,12 +2,6 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="dbDuLieuYTeBD">
   <DataContextMoniker Name="/dbDuLieuYTeBDDataContext" />
   <nestedChildShapes>
-    <classShape Id="6ae0dd02-52bd-4a2f-a29b-b5e834ec401e" absoluteBounds="0.75, 4.75, 2, 1.3862939453125005">
-      <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/TaiKhoan" />
-      <nestedChildShapes>
-        <elementListCompartment Id="40b3e300-dfe5-4fd3-a2d1-688a45d2a5aa" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
-      </nestedChildShapes>
-    </classShape>
     <classShape Id="86919343-c9fb-4ecd-80bb-c560de91c73d" absoluteBounds="0.75, 1.75, 2, 1.1939925130208335">
       <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/DanhMuc" />
       <nestedChildShapes>
@@ -27,5 +21,11 @@
         <classShapeMoniker Id="777a36bf-f480-41e3-b6e2-e4c00ca0d4bc" />
       </nodes>
     </associationConnector>
+    <classShape Id="6421e38f-5c49-4174-b1ae-afe167ed6823" absoluteBounds="1.5, 4.25, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/dbDuLieuYTeBDDataContext/TaiKhoan" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c8402fd1-66e1-43ea-b598-57b562188c15" absoluteBounds="1.5149999999999997, 4.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>
