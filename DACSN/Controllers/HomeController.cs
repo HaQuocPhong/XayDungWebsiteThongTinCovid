@@ -98,5 +98,10 @@ namespace DACSN.Controllers
             var ListTinTuc = db.BaiViets.Where(s => s.IdDM == 2).OrderByDescending(s => s.NgayViet).Take(9);
             return View(ListTinTuc);
         }
+
+        public ActionResult BieuDo()
+        {
+            return View();
+        }
     }
 }

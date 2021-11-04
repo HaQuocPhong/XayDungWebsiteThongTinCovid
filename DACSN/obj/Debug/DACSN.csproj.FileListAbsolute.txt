@@ -542,7 +542,7 @@ D:\Documents\DoAnCoSoNganh_NhomF1\DACSN\bin\Microsoft.Owin.Security.MicrosoftAcc
 D:\Documents\DoAnCoSoNganh_NhomF1\DACSN\bin\Microsoft.Owin.Security.OAuth.xml
 D:\Documents\DoAnCoSoNganh_NhomF1\DACSN\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Documents\DoAnCoSoNganh_NhomF1\DACSN\obj\Debug\DACSN.csproj.CoreCompileInputs.cache
-D:\Documents\DoAnCoSoNganh_NhomF1\DACSN\obj\Debug\DACSN.csproj.CopyComplete
 D:\Documents\DoAnCoSoNganh_NhomF1\DACSN\obj\Debug\DACSN.dll
 D:\Documents\DoAnCoSoNganh_NhomF1\DACSN\obj\Debug\DACSN.pdb
 D:\Documents\DoAnCoSoNganh_NhomF1\DACSN\obj\Debug\DACSN.csproj.AssemblyReference.cache
+D:\Documents\DoAnCoSoNganh_NhomF1\DACSN\bin\DotNet.Highcharts.dll
