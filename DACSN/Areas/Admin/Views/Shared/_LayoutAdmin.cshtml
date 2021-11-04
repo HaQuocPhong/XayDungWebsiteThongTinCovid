@@ -20,6 +20,7 @@
     <link href="~/Plugin/AdminTemplate/css/floatexamples.css" rel="stylesheet" />
     <script src="~/Plugin/AdminTemplate/js/jquery.min.js"></script>
     <script src="~/Plugin/AdminTemplate/js/nprogress.js"></script>
+    <script src="~/Scripts/ThongBao.js"></script>
     <script>
         NProgress.start();
     </script>
@@ -45,6 +46,16 @@
 
 
     </script>
+
+    <style type="text/css">
+        .alert {
+            margin-bottom: 0px;
+        }
+
+            .alert alert-success {
+                position: absolute;
+            }
+    </style>
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
         <![endif]-->
@@ -55,6 +66,8 @@
         <![endif]-->
 </head>
 
+@using DACSN.Models
+@{ TaiKhoan tk = (TaiKhoan)Session["TenDN"]; }
 <body class="nav-md">
     <div class="container body">
 
@@ -75,7 +88,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2>Hà Quốc Phong</h2>
+                            <h2>@tk.TenDN</h2>
                         </div>
                     </div>
                     <!-- /menu prile quick info -->
@@ -129,9 +142,6 @@
                                             @Html.ActionLink("Tạo bài viết", "Create", "BaiViet")
                                         </li>
                                         <li>
-                                            <a href="#">Duyệt bài</a>
-                                        </li>
-                                        <li>
                                             @Html.ActionLink("Danh sách bài viết", "Index", "BaiViet")
                                         </li>
                                         <li>
@@ -140,10 +150,7 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-laptop"></i>Quản lý khai báo y tế</a>
-                                </li>
-                                <li>
-                                    <a><i class="fa fa-border" ></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a>
+                                    <a><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -173,7 +180,7 @@
                                         <a href="#">Trợ giúp</a>
                                     </li>
                                     <li>
-                                        @Html.ActionLink("Đăng xuất","DangXuat","Admin")
+                                        @Html.ActionLink("Đăng xuất", "DangXuat", "Admin")
                                     </li>
                                 </ul>
                             </li>
@@ -183,7 +190,13 @@
             </div>
             <!-- /top navigation -->
             <!-- page content -->
+
             <div class="right_col" role="main">
+                @if (TempData["AlertMessage"] != null)
+                {
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide" role="alert">
+        @TempData["AlertMessage"]
+    </div>}
                 @RenderBody()
 
             </div>
@@ -226,7 +239,7 @@
     <script src="~/Plugin/AdminTemplate/js/flot/curvedLines.js"></script>
     <script src="~/Plugin/AdminTemplate/js/flot/jquery.flot.resize.js"></script>
 
-   
+
     <!-- /datepicker -->
     <!-- /footer content -->
 </body>

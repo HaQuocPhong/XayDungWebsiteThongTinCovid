@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DuLieuYTeBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BaiViet">
+    <Key>
+      <PropertyRef Name="IdBV" />
+    </Key>
+    <Property Name="IdBV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TieuDe" Type="nvarchar(max)" />
+    <Property Name="TomTat" Type="nvarchar(max)" />
+    <Property Name="NoiDung" Type="ntext" />
+    <Property Name="NgayViet" Type="datetime" />
+    <Property Name="Hinh" Type="nvarchar" MaxLength="50" />
+    <Property Name="NguoiViet" Type="nvarchar" MaxLength="100" />
+    <Property Name="IdDM" Type="int" />
+    <Property Name="Tag" Type="nvarchar" MaxLength="60" />
+    <Property Name="LinkVideo" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="DanhMuc">
+    <Key>
+      <PropertyRef Name="IdDM" />
+    </Key>
+    <Property Name="IdDM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDM" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="IdNV" />
+    </Key>
+    <Property Name="IdNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="MatKhauNV" Type="nvarchar" MaxLength="50" />
+    <Property Name="CodeResetPassword" Type="varchar" MaxLength="100" />
+    <Property Name="HovaTen" Type="nvarchar" MaxLength="100" />
+    <Property Name="DiaChi" Type="ntext" />
+    <Property Name="SDT" Type="varchar" MaxLength="20" />
+    <Property Name="NgayDangKy" Type="smalldatetime" />
+    <Property Name="IsEmailVerified" Type="bit" />
+    <Property Name="ActivationCode" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="IdTK" />
+    </Key>
+    <Property Name="IdTK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenDN" Type="char" MaxLength="10" />
+    <Property Name="MatKhau" Type="char" MaxLength="10" />
+    <Property Name="Quyen" Type="int" />
+  </EntityType>
+  <Association Name="FK__BaiViet__IdDM__145C0A3F">
+    <End Role="DanhMuc" Type="Self.DanhMuc" Multiplicity="0..1" />
+    <End Role="BaiViet" Type="Self.BaiViet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanhMuc">
+        <PropertyRef Name="IdDM" />
+      </Principal>
+      <Dependent Role="BaiViet">
+        <PropertyRef Name="IdDM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DuLieuYTeBDModelStoreContainer">
+    <EntitySet Name="BaiViet" EntityType="Self.BaiViet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DanhMuc" EntityType="Self.DanhMuc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TaiKhoan" EntityType="Self.TaiKhoan" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BaiViet__IdDM__145C0A3F" Association="Self.FK__BaiViet__IdDM__145C0A3F">
+      <End Role="DanhMuc" EntitySet="DanhMuc" />
+      <End Role="BaiViet" EntitySet="BaiViet" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

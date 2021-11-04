@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="DuLieuYTeBD" Class="dbDuLieuYTeBDDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GI2B3FR;Initial Catalog=DuLieuYTeBD;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DuLieuYTeBDConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.DanhMuc" Member="DanhMucs">
-    <Type Name="DanhMuc">
-      <Column Name="IdDM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="TenDM" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Association Name="DanhMuc_BaiViet" Member="BaiViets" ThisKey="IdDM" OtherKey="IdDM" Type="BaiViet" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-GI2B3FR;Initial Catalog=DuLieuYTeBD;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="DuLieuYTeBDConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CaNhiem" Member="CaNhiems">
+    <Type Name="CaNhiem">
+      <Column Name="Stt" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tinh" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Tongsoca" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Homnay" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Tuvong" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.BaiViet" Member="BaiViets">
@@ -20,6 +22,27 @@
       <Column Name="Tag" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
       <Column Name="LinkVideo" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Association Name="DanhMuc_BaiViet" Member="DanhMuc" ThisKey="IdDM" OtherKey="IdDM" Type="DanhMuc" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DanhMuc" Member="DanhMucs">
+    <Type Name="DanhMuc">
+      <Column Name="IdDM" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDM" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="DanhMuc_BaiViet" Member="BaiViets" ThisKey="IdDM" OtherKey="IdDM" Type="BaiViet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="IdNV" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MatKhauNV" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CodeResetPassword" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="HovaTen" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DiaChi" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SDT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="NgayDangKy" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="IsEmailVerified" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ActivationCode" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.TaiKhoan" Member="TaiKhoans">

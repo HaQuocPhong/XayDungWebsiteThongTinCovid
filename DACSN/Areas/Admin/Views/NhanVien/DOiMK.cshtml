@@ -1,0 +1,63 @@
+﻿@model DACSN.Models.ChangePassworld
+
+@{
+    ViewBag.Title = "Đổi Mật Khẩu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutNhanVien.cshtml";
+}
+
+<style type="text/css">
+    .form-horizontal .form-group {
+        margin-right:  0px;
+        margin-left: 140px;
+    }
+    .form-horizontal h4{
+        text-align:center;
+    }
+
+    .form-group .nutSave{
+        text-align:center;
+    }
+</style>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Đổi Mật Khẩu</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+           
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CurrentPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Mật Khẩu Hiện Tại" } })
+                @Html.ValidationMessageFor(model => model.CurrentPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+          
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NewPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Mật Khẩu Mới" } })
+                @Html.ValidationMessageFor(model => model.NewPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+          
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ConfirmNewPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Nhập Lại Mật Khẩu Mới" } })
+                @Html.ValidationMessageFor(model => model.ConfirmNewPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="nutSave col-md-10">
+                <input type="submit" value="Đổi Mật Khẩu" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+

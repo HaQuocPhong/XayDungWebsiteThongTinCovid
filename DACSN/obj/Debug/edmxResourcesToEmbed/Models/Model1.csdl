@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DuLieuYTeBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="BaiViet">
+    <Key>
+      <PropertyRef Name="IdBV" />
+    </Key>
+    <Property Name="IdBV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TieuDe" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TomTat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NoiDung" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="NgayViet" Type="DateTime" Precision="3" />
+    <Property Name="Hinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NguoiViet" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IdDM" Type="Int32" />
+    <Property Name="Tag" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="LinkVideo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="DanhMuc" Relationship="Self.FK__BaiViet__IdDM__145C0A3F" FromRole="BaiViet" ToRole="DanhMuc" />
+  </EntityType>
+  <EntityType Name="DanhMuc">
+    <Key>
+      <PropertyRef Name="IdDM" />
+    </Key>
+    <Property Name="IdDM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDM" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="BaiViets" Relationship="Self.FK__BaiViet__IdDM__145C0A3F" FromRole="DanhMuc" ToRole="BaiViet" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="IdNV" />
+    </Key>
+    <Property Name="IdNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MatKhauNV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CodeResetPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="HovaTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SDT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NgayDangKy" Type="DateTime" Precision="0" />
+    <Property Name="IsEmailVerified" Type="Boolean" />
+    <Property Name="ActivationCode" Type="Guid" />
+  </EntityType>
+  <EntityType Name="TaiKhoan">
+    <Key>
+      <PropertyRef Name="IdTK" />
+    </Key>
+    <Property Name="IdTK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenDN" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="MatKhau" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="Quyen" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__BaiViet__IdDM__145C0A3F">
+    <End Role="DanhMuc" Type="Self.DanhMuc" Multiplicity="0..1" />
+    <End Role="BaiViet" Type="Self.BaiViet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DanhMuc">
+        <PropertyRef Name="IdDM" />
+      </Principal>
+      <Dependent Role="BaiViet">
+        <PropertyRef Name="IdDM" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DuLieuYTeBDEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="BaiViets" EntityType="Self.BaiViet" />
+    <EntitySet Name="DanhMucs" EntityType="Self.DanhMuc" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
+    <EntitySet Name="TaiKhoans" EntityType="Self.TaiKhoan" />
+    <AssociationSet Name="FK__BaiViet__IdDM__145C0A3F" Association="Self.FK__BaiViet__IdDM__145C0A3F">
+      <End Role="DanhMuc" EntitySet="DanhMucs" />
+      <End Role="BaiViet" EntitySet="BaiViets" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

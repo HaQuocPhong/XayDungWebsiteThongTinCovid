@@ -7,19 +7,18 @@ using DACSN.Models;
 
 namespace DACSN.Areas.Admin.Controllers
 {
-    public class AdminController : Controller
+    public class AdminController : BaseController
     {
         dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext();
         // GET: Admin/Admin
         public ActionResult Index()
         {
-            if (Session["Admin"] == null)
+            if (Session["TenDN"] == null)
             {
-                return RedirectToAction("DangNhap", "Admin");
+                return RedirectToAction("FormLuaChon", "LoginDN");
             }
             return View();
         }
-
 
         [HttpGet]
         public ActionResult DangNhap()
@@ -34,34 +33,27 @@ namespace DACSN.Areas.Admin.Controllers
             var sMatKhau = collection["Password"];
 
             TaiKhoan ad = db.TaiKhoans.SingleOrDefault(n => n.TenDN == sTenDN && n.MatKhau == sMatKhau);
-            if (ad != null && ad.Quyen == "Admin")
+            
+            if (ad != null)
             {
-                Session["Admin"] = ad;
+                Session["TenDN"] = ad;
+                SetAlert("Đăng Nhập Thành Công", "success");
                 return RedirectToAction("Index", "Admin");
             }
-            else if (ad != null && ad.Quyen == "User")
-            {
-                Session["Admin"] = ad;
-                return RedirectToAction("Index", "User");
-            }
+            
             else
             {
                 ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                SetAlert("Đăng Nhập không Thành Công", "warning");
+                return RedirectToAction("DangNhap", "Admin");
             }
-            return View();
         }
 
         public ActionResult DangXuat()
         {
             Session.Clear();
 
-            return RedirectToAction("DangNhap");
-        }
-
-        [HttpGet]
-        public ActionResult QuenMK()
-        {
-            return View();
+            return RedirectToAction("FormLuaChon", "LoginDN");
         }
     }
 }

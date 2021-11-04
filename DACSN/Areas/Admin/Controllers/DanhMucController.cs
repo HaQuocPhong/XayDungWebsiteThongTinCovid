@@ -74,21 +74,27 @@ namespace DACSN.Areas.Admin.Controllers
         }
 
         [HttpGet]
-        public ActionResult Delete(int id)
+        public ActionResult Delete(int? id)
         {
-
-            return View(GetDM(id));
-        }
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection f)
-        {
-            var dm = GetDM(id);
+            var dm = db.DanhMucs.SingleOrDefault(n => n.IdDM == id);
             if (dm == null)
             {
                 Response.StatusCode = 404;
                 return null;
             }
-            db.DanhMucs.InsertOnSubmit(dm);
+            return View(dm);
+            //return View(GetDM(id));
+        }
+        [HttpPost]
+        public ActionResult Delete(int? id, FormCollection f)
+        {
+            var dm = db.DanhMucs.SingleOrDefault(n => n.IdDM == id);
+            if (dm == null)
+            {
+                Response.StatusCode = 404;
+                return null;
+            }
+            db.DanhMucs.DeleteOnSubmit(dm);
             db.SubmitChanges();
             return RedirectToAction("Index");
         }
