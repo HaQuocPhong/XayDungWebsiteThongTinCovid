@@ -1,6 +1,7 @@
 ﻿@model DACSN.Models.DanhMuc
+
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Xóa Danh Mục";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutNhanVien.cshtml";
 }
 
@@ -32,13 +33,13 @@
     <br />
     @using (Html.BeginForm())
     {
-@Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
 
-                <div class="form-actions no-color">
-                    <input type="submit" value="Delete" class="btn btn-default" />
-                </div>
-     }
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
 </div>
 @Html.ActionLink("Trở lại trang danh sách danh mục", "Index")
 

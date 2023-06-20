@@ -17,7 +17,9 @@ namespace DACSN.Areas.Admin.Controllers
         {
             int iPageNum = (page ?? 1);
             int iPageSize = 5;
-            return View(db.BaiViets.ToList().OrderBy(n => n.IdBV).ToPagedList(iPageNum, iPageSize));
+            var ketqua = db.BaiViets.ToList().OrderBy(n => n.IdBV);
+            ViewBag.Ketqua = ketqua.Count();
+            return View(ketqua.ToPagedList(iPageNum, iPageSize));
         }
 
         [HttpGet]
@@ -168,6 +170,22 @@ namespace DACSN.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             return View(bv);
+        }
+        public ActionResult Search_BaiViet(string strSearch, int? page)
+        {
+            int iPageNum = (page ?? 1);
+            int iPageSize = 30;
+            ViewBag.search_BV = strSearch;
+            var dl = db.BaiViets;
+            if (!String.IsNullOrEmpty(strSearch))
+            {
+                var kq = from s in db.BaiViets where s.TieuDe.Contains(strSearch)|| s.NguoiViet.Contains(strSearch) || s.Tag.Contains(strSearch) select s;
+                ViewBag.Count_KQ = kq.Count();
+
+                //var kq = from s in data.ThongTin_KhaiBaos where s.NgayKhaiBao.ToString().Contains(strSearch)   select s ;
+                return View(kq.ToPagedList(iPageNum, iPageSize));
+            }
+            return View(dl.ToList().ToPagedList(iPageNum, iPageSize));
         }
     }
 }

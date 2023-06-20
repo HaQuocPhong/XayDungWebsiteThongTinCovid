@@ -11,6 +11,7 @@ namespace DACSN.Areas.Admin.Controllers
 {
     public class DanhMucNVController : Controller
     {
+        // GET: Admin/DanhMucNV
         dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext();
         // GET: Admin/DanhMucNV
         public ActionResult Index(int? page)

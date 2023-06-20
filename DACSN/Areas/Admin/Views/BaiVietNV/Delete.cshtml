@@ -1,6 +1,7 @@
 ﻿@model DACSN.Models.BaiViet
+
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Xóa bài viết";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutNhanVien.cshtml";
 }
 
@@ -79,11 +80,9 @@
 
     @using (Html.BeginForm())
     {
-@Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-                <div class="form-actions no-color">
-                    <input type="submit" value="Delete" class="btn btn-default" />
-                </div>}
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>}
 </div>
-
-

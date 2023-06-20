@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace DACSN.Models
 {
     [MetadataType(typeof(NhanVienMetadata))]
@@ -87,7 +88,5 @@ namespace DACSN.Models
         {
             get; set;
         }
-
-
     }
 }

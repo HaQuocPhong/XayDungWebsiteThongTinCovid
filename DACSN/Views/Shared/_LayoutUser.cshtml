@@ -34,7 +34,36 @@
         </div>
     </header>
     <!--Nav-->
-    @Html.Action("NavPartial","Home")
+    <nav class="navbar" style="background: rgb(42, 52, 119);">
+        <div class="container">
+            <ul class="navbar-nav text-uppercase">
+                <li class="nav-iteam active">
+                    <a class="nav-link keep-text-desaturate" tabindex="1" href="~/Home/Index" title="Nhấn Enter để kích hoạt"
+                       style="color: white !important;">TRANG CHỦ</a>
+                </li>
+                <li class="nav-iteam">
+                    <a class="nav-link keep-text-desaturate" tabindex="1" href="~/Home/ChiDao" title="Nhấn Enter để kích hoạt"
+                       style="color: white !important;">CHỈ ĐẠO CHỐNG DỊCH</a>
+                </li>
+                <li class="nav-iteam ">
+                    <a class="nav-link keep-text-desaturate" tabindex="1" href="~/Home/TinTuc" title="Nhấn Enter để kích hoạt"
+                       style="color: white !important;">TIN TỨC</a>
+                </li>
+                <li class="nav-iteam ">
+                    <a class="nav-link keep-text-desaturate" tabindex="1" href="~/Home/Video" title="Nhấn Enter để kích hoạt"
+                       style="color: white !important;">VIDEO</a>
+                </li>
+                <li class="nav-iteam ">
+                    <a class="nav-link keep-text-desaturate" tabindex="1" href="~/Home/Vaccine" title="Nhấn Enter để kích hoạt"
+                       style="color: white !important;">VACINE - TIÊM CHỦNG</a>
+                </li>
+                <li class="nav-iteam ">
+                    <a class="nav-link keep-text-desaturate" tabindex="1" href="~/KhaiBao/KhaiBao" title="Nhấn Enter để kích hoạt"
+                       style="color: white !important;">KHAI BÁO Y TẾ</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
     <br />
     <!--RenderBody-->
     <div class="container">

@@ -3,7 +3,7 @@
 @model PagedList.PagedList<DACSN.Models.BaiViet>
 
 @{
-    ViewBag.Title = "Tạo Bài Viết";
+    ViewBag.Title = "Tạo bài viết";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutNhanVien.cshtml";
 }
 
@@ -36,18 +36,20 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Danh sách bài viết</h1>
     <br />
-
+    <p style="font-size:15px">
+        Số Lượng bài viết : @ViewBag.Ketqua
+    </p>
     <div class="container">
         <div class="row">
             <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="  search-query form-control" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button">
-                            <span class=" glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
+                @using (Html.BeginForm("Search_BaiViet", "BaiVietNV", FormMethod.Get, new { @role = "search_BV" }))
+                {
+                    <div class="input-group col-md-12">
+
+                        <input type="text" class="  search-query form-control" placeholder="Search" name="strSearch1" value="@ViewBag.search_BV1" />
+                        <button type="submit" class="btn btn-danger">Tìm</button>
+
+                    </div>}
             </div>
         </div>
     </div>
@@ -117,4 +119,3 @@ Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
         text-align: center;
     }
 </style>
-

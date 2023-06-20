@@ -7,20 +7,20 @@ using DACSN.Models;
 using System.IO;
 using PagedList;
 
-
 namespace DACSN.Areas.Admin.Controllers
 {
     public class BaiVietNVController : Controller
     {
-        // GET: Admin/BaiVietNV
         dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext();
-        // GET: Admin/BaiViet
+        // GET: Admin/BaiVietNV
+       
         public ActionResult Index(int? page)
         {
             int iPageNum = (page ?? 1);
             int iPageSize = 5;
-            var ListBV = db.BaiViets.ToList().OrderBy(n => n.NguoiViet == "1");
-            return View(ListBV.ToPagedList(iPageNum, iPageSize));
+            var ketqua = db.BaiViets.ToList().OrderBy(n => n.IdBV);
+            ViewBag.Ketqua = ketqua.Count();
+            return View(ketqua.ToPagedList(iPageNum, iPageSize));
         }
 
         [HttpGet]
@@ -171,6 +171,22 @@ namespace DACSN.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             return View(bv);
+        }
+        public ActionResult Search_BaiViet(string strSearch1, int? page)
+        {
+            int iPageNum = (page ?? 1);
+            int iPageSize = 30;
+            ViewBag.search_BV1 = strSearch1;
+            var dl = db.BaiViets;
+            if (!String.IsNullOrEmpty(strSearch1))
+            {
+                var kq = from s in db.BaiViets where s.NguoiViet.Contains(strSearch1)|| s.TieuDe.Contains(strSearch1) || s.Tag.Contains(strSearch1) select s;
+                ViewBag.Count_KQ = kq.Count();
+
+                //var kq = from s in data.ThongTin_KhaiBaos where s.NgayKhaiBao.ToString().Contains(strSearch)   select s ;
+                return View(kq.ToPagedList(iPageNum, iPageSize));
+            }
+            return View(dl.ToList().ToPagedList(iPageNum, iPageSize));
         }
     }
 }

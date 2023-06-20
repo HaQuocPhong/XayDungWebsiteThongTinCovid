@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "VerifyAccount";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
 <style type="text/css">
@@ -17,9 +18,9 @@
 
 @if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
 {
-<div class="alert alert-success">
-    <strong>Success!</strong>Tài khoản của bạn đã được kích hoạt thành công. Click here to @Html.ActionLink("Đăng Nhập", "DangNhapNV", "NhanVien")
-</div>
+    <div class="alert alert-success">
+        <strong>Success!</strong>Tài khoản của bạn đã được kích hoạt thành công. Click here to @Html.ActionLink("Đăng Nhập", "DangNhapNV", "NhanVien")
+    </div>
 }
 else
 {

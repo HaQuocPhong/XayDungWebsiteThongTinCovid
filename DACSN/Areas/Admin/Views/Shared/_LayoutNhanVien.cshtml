@@ -12,6 +12,7 @@
     <link href="~/Plugin/AdminTemplate/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Plugin/AdminTemplate/fonts/css/font-awesome.min.css" rel="stylesheet" />
     <link href="~/Plugin/AdminTemplate/css/animate.min.css" rel="stylesheet" />
+
     <!-- Custom styling plus plugins -->
 
     <link href="~/Plugin/AdminTemplate/css/custom.css" rel="stylesheet" />
@@ -23,8 +24,7 @@
     <script>NProgress.start();</script>
     <script src="~/Scripts/ThongBao.js"></script>
     <script src="~/tinymce/tinymce.min.js"></script>
-    <script>
-        tinymce.init({
+    <script>tinymce.init({
             selector: 'textarea',
             plugins: [
                 'advlist autolink link image lists charmap print preview hr anchor pagebreak',
@@ -51,8 +51,7 @@
             }
     </style>
 </head>
-@using DACSN.Models
-@{ NhanVien nv = (NhanVien)Session["NhanVien"]; }
+
 <body class="nav-md">
     <div class="container body">
 
@@ -71,7 +70,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2>@nv.HovaTen</h2>
+                            <h2>Nhân viên</h2>
                         </div>
                     </div>
                     <!-- /menu prile quick info -->
@@ -86,7 +85,7 @@
                                     <a><i class="fa fa-home"></i> Quản lý tài khoản <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li>
-                                            @Html.ActionLink("Thông Tin Cá Nhân", "ThongTinCaNhan", "NhanVien")
+                                            @Html.Action("TTCN","NhanVien")
                                         </li>
 
                                     </ul>
@@ -138,7 +137,7 @@
                                         <a href="#">Trợ giúp</a>
                                     </li>
                                     <li>
-                                        @Html.ActionLink("Đăng xuất", "DangXuat", "Admin")
+                                        <a href="@Url.Action("FormLuaChon", "LoginDN")">Đăng xuất</a>
                                     </li>
                                 </ul>
                             </li>

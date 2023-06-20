@@ -9,6 +9,7 @@ namespace DACSN.Areas.Admin.Controllers
 {
     public class LoginDNController : Controller
     {
+        
         dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext();
         // GET: Admin/LoginDN
         public ActionResult FormLuaChon()

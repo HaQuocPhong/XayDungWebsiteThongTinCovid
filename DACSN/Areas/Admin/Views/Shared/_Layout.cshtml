@@ -7,7 +7,7 @@
     <link rel="SHORTCUT ICON" href="~/Images/LogoBD.ico">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    <script src="~/Scripts/ThongBao.js"></script>
     <style type="text/css">
         body, html {
             font-family: 'Source Sans Pro', sans-serif;
@@ -34,7 +34,7 @@
 
         }
 
-       /* .col-md-offset-2 {
+        /* .col-md-offset-2 {
             margin-left: 7.666667%;
         }*/
 
@@ -53,7 +53,6 @@
         }
 
         .TieuDe span {
-         
             color: #dfdeee;
             font-weight: lighter;
         }
@@ -65,8 +64,8 @@
             font-size: 13px;
             color: #a1a4ad;
             letter-spacing: 1.5px;
-           /* margin-top: -15px;*/
-          /*  margin-bottom: 70px;*/
+            /* margin-top: -15px;*/
+            /*  margin-bottom: 70px;*/
         }
 
         .TieuDe h2 {
@@ -88,20 +87,24 @@
             box-shadow: 0.375em 0.375em 0 0 rgba(15, 28, 63, 0.125);
             height: 3em;
             width: 3em;
-            right:50%;
+            right: 50%;
         }
-
-       
     </style>
 </head>
 <body>
 
     <div class="container body-content">
         <button class="QuayVe"></button>
-      
+
+        @if (TempData["AlertMessage"] != null)
+        {
+    <div id="AlertBox" class="alert @TempData["AlertType"] hide" role="alert">
+        @TempData["AlertMessage"]
+    </div>}
+
         @RenderBody()
     </div>
-   
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

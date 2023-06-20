@@ -1,26 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
+
+using System.Net;
+using System.Net.Mail;
 using DACSN.Models;
-using OpenXmlPowerTools;
+//using OpenXmlPowerTools;
 using System.Data.Entity;
 using System.Web.Security;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.AspNetCore.Mvc;
+//using Microsoft.EntityFrameworkCore.Design;
+//using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
-
 
 namespace DACSN.Areas.Admin.Controllers
 {
     public class NhanVienController : BaseController
     {
+        // GET: Admin/NhanVien
         dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext();
         // GET: Admin/NhanVien
 
@@ -46,7 +47,7 @@ namespace DACSN.Areas.Admin.Controllers
         //[ValidateAntiForgeryToken]
         public ActionResult DangNhapNV(/*NhanVienLogin nvlogin*/ FormCollection collection)
         {
-          
+
             var sTenDN = collection["Email"];
             var sMatKhau = collection["Password"];
 
@@ -232,9 +233,9 @@ namespace DACSN.Areas.Admin.Controllers
             var verifyUrl = "/Admin/NhanVien/" + emailFor + "/" + acctivationCode;
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
 
-            var fromEmail = new MailAddress("nguyennhatminh26122001@gmail.com", "Nguyễn Nhật Minh");
+            var fromEmail = new MailAddress("hoangthai15956@gmail.com", "Đặng Hải Việt");
             var toEmail = new MailAddress(emailID);
-            var fromEmailPassword = "01218244566"; //Relace with actual password
+            var fromEmailPassword = "0947848841v"; //Relace with actual password
 
             string subject = "";
             string body = "";
@@ -312,17 +313,17 @@ namespace DACSN.Areas.Admin.Controllers
             return View();
         }
 
-      
+
         public ActionResult ResetPassword(string id)
         {
             //Verify the reset password link
             //Find account associated with this link
             //redirect to reset password page
 
-            using(dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext())
+            using (dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext())
             {
                 var nv = db.NhanViens.Where(a => a.CodeResetPassword == id).FirstOrDefault();
-                if(nv != null)
+                if (nv != null)
                 {
                     ResetPasswordModel model = new ResetPasswordModel();
                     model.ResetCode = id;
@@ -333,34 +334,35 @@ namespace DACSN.Areas.Admin.Controllers
                     return HttpNotFound();
                     //return Redirect("~/Admin/NhanVien/ResetPassword");
                 }
-            }        
+            }
         }
 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ResetPassword (ResetPasswordModel model, FormCollection col)
+        public ActionResult ResetPassword(ResetPasswordModel model, FormCollection col)
         {
             var message = "";
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                using(dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext())
+                using (dbDuLieuYTeBDDataContext db = new dbDuLieuYTeBDDataContext())
                 {
                     var nv = db.NhanViens.Where(a => a.CodeResetPassword == model.ResetCode).FirstOrDefault();
-                    if(nv != null)
+                    if (nv != null)
                     {
                         var MatKhauMV = col["MatKhauNV"];
                         nv.MatKhauNV = model.NewPassword;
                         nv.CodeResetPassword = "";
                         //db.Configuration.ValidateOnSaveEnabled = false;
                         db.SubmitChanges();
-                        message = "Mật khẩu đã cập nhật thành công";
+                        SetAlert("Thay đổi mật khẩu thành công", "success");
+                        return RedirectToAction("DangNhapNV", "NhanVien");
                     }
                 }
             }
             else
             {
-                message = "Yêu cầu không hợp lệ";
+                SetAlert("Thay đổi mật khẩu không thành công", "warning");
             }
             ViewBag.Message = message;
             return View(model);
@@ -430,8 +432,18 @@ namespace DACSN.Areas.Admin.Controllers
         //        SetAlert("Mật Khẩu Hiện Tại Không Trùng Nhau", "warning");
         //        return Redirect("/Admin/NhanVien/DOiMK");
         //    }
-        //}   
+        //}
         #endregion
+
+        public ActionResult TTCNPartial()
+        {
+            return PartialView();
+        }
+
+        public ActionResult TTCN()
+        {
+            return PartialView("TTCNPartial");
+        }
 
         #region Thông Tin Cá Nhân
 
@@ -444,7 +456,7 @@ namespace DACSN.Areas.Admin.Controllers
                 SetAlert("Đăng Nhập không Thành Công", "warning");
                 return RedirectToAction("FormLuaChon", "LoginDN");
             }
-            return View();               
+            return View();
         }
 
         [HttpPost]
@@ -465,7 +477,7 @@ namespace DACSN.Areas.Admin.Controllers
             SetAlert("Sửa Thành Công", "success");
             return Redirect("/Admin/NhanVien/ThongTinCaNhan");
         }
-        
+
         #endregion
     }
 }

@@ -67,19 +67,56 @@ namespace DACSN.Controllers
             return View(ListVideo);
         }
 
-        public ActionResult NavPartial()
+        public ActionResult ChiTietTinTuc(int id)
         {
-            return PartialView();
+            var bv = from s in db.BaiViets
+                       where s.IdBV == id
+                       select s;
+            return View(bv.Single());
         }
 
-        public ActionResult LoginLogoutPartial()
+        public ActionResult Video()
         {
-            return PartialView();
+            var ListVideo = db.BaiViets.Where(s => s.IdDM == 3).OrderByDescending(s => s.NgayViet).Take(9);
+            return View(ListVideo);
         }
 
-        public ActionResult LoginLogout()
+        public ActionResult ChiDao()
         {
-            return PartialView("LoginLogoutPartial");
+            var ListChiDao = db.BaiViets.Where(s => s.IdDM == 1).OrderByDescending(s => s.NgayViet).Take(9);
+            return View(ListChiDao);
+        }
+
+        public ActionResult Vaccine()
+        {
+            var ListVideo = db.BaiViets.Where(s => s.IdDM == 4).OrderByDescending(s => s.NgayViet).Take(9);
+            return View(ListVideo);
+        }
+
+        public ActionResult TinTuc()
+        {
+            var ListTinTuc = db.BaiViets.Where(s => s.IdDM == 2).OrderByDescending(s => s.NgayViet).Take(9);
+            return View(ListTinTuc);
+        }
+
+        public ActionResult BieuDo()
+        {
+            return View();
+        }
+        public ActionResult List_ThongKe()
+        {
+            return View();
+        }
+       
+        public ActionResult DienBienDich()
+        {
+            var ListDienBien = LayDienBienDich(3);
+            return View(ListDienBien);
+        }
+
+        private List<DienBienDich> LayDienBienDich(int count)
+        {
+            return db.DienBienDiches.OrderByDescending(a => a.ThoiGian).Take(count).ToList();
         }
     }
 }

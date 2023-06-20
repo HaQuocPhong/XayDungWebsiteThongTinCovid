@@ -20,7 +20,6 @@
     <link href="~/Plugin/AdminTemplate/css/floatexamples.css" rel="stylesheet" />
     <script src="~/Plugin/AdminTemplate/js/jquery.min.js"></script>
     <script src="~/Plugin/AdminTemplate/js/nprogress.js"></script>
-    <script src="~/Scripts/ThongBao.js"></script>
     <script>
         NProgress.start();
     </script>
@@ -46,16 +45,6 @@
 
 
     </script>
-
-    <style type="text/css">
-        .alert {
-            margin-bottom: 0px;
-        }
-
-            .alert alert-success {
-                position: absolute;
-            }
-    </style>
     <!--[if lt IE 9]>
         <script src="../assets/js/ie8-responsive-file-warning.js"></script>
         <![endif]-->
@@ -66,8 +55,6 @@
         <![endif]-->
 </head>
 
-@using DACSN.Models
-@{ TaiKhoan tk = (TaiKhoan)Session["TenDN"]; }
 <body class="nav-md">
     <div class="container body">
 
@@ -88,7 +75,7 @@
                         </div>
                         <div class="profile_info">
                             <span>Welcome,</span>
-                            <h2>@tk.TenDN</h2>
+                            <h2>Hà Quốc Phong</h2>
                         </div>
                     </div>
                     <!-- /menu prile quick info -->
@@ -103,23 +90,24 @@
                                     <a><i class="fa fa-home"></i> Quản lý tài khoản <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li>
-                                            <a href="#">Danh sách tài khoản</a>
+                                          @Html.ActionLink("Quản lý tài khoản","DanhSach_NV","KhaiBaoAdmin")
                                         </li>
-                                        <li>
+                                        @*<li>
                                             <a href="#">Thêm tài khoản</a>
                                         </li>
                                         <li>
                                             <a href="#">Thông tin cá nhân</a>
-                                        </li>
+                                        </li>*@
                                     </ul>
                                 </li>
                                 <li>
                                     <a><i class="fa fa-bar-chart-o"></i> Thống Kê <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu" style="display: none">
                                         <li>
-                                            <a href="#">Biểu đồ thống kê</a>
+                                            @*<a href="#">Biểu đồ thống kê</a>*@
+                                            @Html.ActionLink("Biểu đồ thống kê", "ThongKe", "KhaiBaoAdmin")
                                         </li>
-                                        <li>
+                                        @*<li>
                                             <a href="#">Lượng truy cập</a>
                                         </li>
                                         <li>
@@ -127,7 +115,7 @@
                                         </li>
                                         <li>
                                             <a href="#">Lương bài post</a>
-                                        </li>
+                                        </li>*@
                                     </ul>
                                 </li>
                             </ul>
@@ -141,6 +129,9 @@
                                         <li>
                                             @Html.ActionLink("Tạo bài viết", "Create", "BaiViet")
                                         </li>
+                                        @*<li>
+                                            <a href="#">Duyệt bài</a>
+                                        </li>*@
                                         <li>
                                             @Html.ActionLink("Danh sách bài viết", "Index", "BaiViet")
                                         </li>
@@ -150,7 +141,11 @@
                                     </ul>
                                 </li>
                                 <li>
-                                    <a><i class="fa fa-laptop"></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a>
+                                    @*<a href="~/KhaiBao/KhaiBaoYTe"><i class="fa fa-laptop"></i>Quản lý khai báo y tế</a>*@
+                                   @Html.ActionLink("Quản lý khai báo y tế","KhaiBaoYTe","KhaiBaoAdmin")
+                                </li>
+                                <li>
+                                    <a><i class="fa fa-border" ></i> Landing Page <span class="label label-success pull-right">Coming Soon</span></a>
                                 </li>
                             </ul>
                         </div>
@@ -173,14 +168,14 @@
                                     <img src='~/Images/ys.jpg' class="img-circle profile_img" />
                                 </a>
                                 <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
-                                    <li>
+                                    @*<li>
                                         <a href="#"> Thông tin cá nhân</a>
-                                    </li>
+                                    </li>*@
                                     <li>
                                         <a href="#">Trợ giúp</a>
                                     </li>
                                     <li>
-                                        @Html.ActionLink("Đăng xuất", "DangXuat", "Admin")
+                                        <a href="@Url.Action("FormLuaChon", "LoginDN")">Đăng xuất</a>
                                     </li>
                                 </ul>
                             </li>
@@ -190,13 +185,7 @@
             </div>
             <!-- /top navigation -->
             <!-- page content -->
-
             <div class="right_col" role="main">
-                @if (TempData["AlertMessage"] != null)
-                {
-    <div id="AlertBox" class="alert @TempData["AlertType"] hide" role="alert">
-        @TempData["AlertMessage"]
-    </div>}
                 @RenderBody()
 
             </div>
@@ -239,7 +228,7 @@
     <script src="~/Plugin/AdminTemplate/js/flot/curvedLines.js"></script>
     <script src="~/Plugin/AdminTemplate/js/flot/jquery.flot.resize.js"></script>
 
-
+   
     <!-- /datepicker -->
     <!-- /footer content -->
 </body>

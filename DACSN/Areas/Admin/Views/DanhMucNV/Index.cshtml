@@ -2,8 +2,10 @@
 @using PagedList.Mvc;
 @model PagedList.PagedList<DACSN.Models.DanhMuc>
 
-@{ ViewBag.Title = "Danh Mục";
-                Layout = "~/Areas/Admin/Views/Shared/_LayoutNhanVien.cshtml"; }
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutNhanVien.cshtml";
+}
 
 <div class="container-fluid admin-artcles">
 
@@ -32,21 +34,22 @@
                     <tbody>
                         @foreach (var item in Model)
                         {
-            <tr>
-                <td><div>@item.IdDM</div></td>
-                <td style="max-width: 250px;"><div>@item.TenDM</div></td>
-                <td style="max-width: 100px;">
-                    <div>@Html.ActionLink("Edit", "Edit", new { id = item.IdDM })</div>
-                    <div>
-                        @Ajax.ActionLink("Delete", "Delete", new { id = item.IdDM }, new AjaxOptions
-                        {
-                            Confirm = "Xác nhận xóa thể loại \"" + @item.TenDM + "\"?",
-                            OnComplete = "$('#row_" + item.IdDM + "').remove()",
-                            HttpMethod = "Delete"
-                        })
-                    </div>
-                </td>
-            </tr>}
+                            <tr>
+                                <td><div>@item.IdDM</div></td>
+                                <td style="max-width: 250px;"><div>@item.TenDM</div></td>
+                                <td style="max-width: 100px;">
+                                    <div>@Html.ActionLink("Edit", "Edit", new { id = item.IdDM })</div>
+                                    <div>
+                                        @Ajax.ActionLink("Delete", "Delete", new { id = item.IdDM }, new AjaxOptions
+                                        {
+                                            Confirm = "Xác nhận xóa thể loại \"" + @item.TenDM + "\"?",
+                                            OnComplete = "$('#row_" + item.IdDM + "').remove()",
+                                            HttpMethod = "Delete"
+                                        })
+                                    </div>
+                                </td>
+                            </tr>
+                        }
 
                     </tbody>
                 </table>

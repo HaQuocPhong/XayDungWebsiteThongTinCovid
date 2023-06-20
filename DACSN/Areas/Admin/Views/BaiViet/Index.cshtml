@@ -14,11 +14,6 @@
         overflow-x: hidden;
         overflow-y: auto;
     }
-
-    element.style {
-        width: 900px;
-    }
-
 </style>
 
 @helper Truncate(string s, int length)
@@ -37,18 +32,20 @@
     <!-- Page Heading -->
     <h1 class="h3 mb-2 text-gray-800">Danh sách bài viết</h1>
     <br />
-    
+    <p style="font-size:15px">
+        Số Lượng bài viết : @ViewBag.Ketqua
+    </p>
     <div class="container">
         <div class="row">
             <div id="custom-search-input">
-                <div class="input-group col-md-12">
-                    <input type="text" class="  search-query form-control" placeholder="Search" />
-                    <span class="input-group-btn">
-                        <button class="btn btn-danger" type="button">
-                            <span class=" glyphicon glyphicon-search"></span>
-                        </button>
-                    </span>
-                </div>
+                @using (Html.BeginForm("Search_BaiViet", "BaiViet", FormMethod.Get, new { @role = "search" }))
+                {
+                    <div class="input-group col-md-12">
+
+                        <input type="text" class="  search-query form-control" placeholder="Search" name="strSearch" value="@ViewBag.search_BV" />
+                        <button type="submit" class="btn btn-danger">Tìm</button>
+
+                    </div>}
             </div>
         </div>
     </div>
